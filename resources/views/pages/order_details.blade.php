@@ -72,7 +72,7 @@
                         <div id="product-card">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <img src="/storage/cover_page/{{$item['item']['cover_page']}}"  alt="" class="img-fluid">
+                                    <img src="{{$item['item']['cover_page']}}"  alt="" class="img-fluid">
                                 </div>
                                 <div class="col-md-6">
                                     <table class="table ">

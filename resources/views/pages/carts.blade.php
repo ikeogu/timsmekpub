@@ -16,7 +16,7 @@
                     
                     <div class="item-img d-flex mb-4">
                     
-                        <img src="/storage/cover_page/{{$product['item']['cover_page']}}" alt="..." width="auto" height="150px">
+                        <img src="{{$product['item']['cover_page']}}" alt="..." width="auto" height="150px">
                         <div class="details pl-4">
                           <h4 class="book-title">{{$product['item']['title']}}</h4>
                           <h5 class="author mb-4">{{$product['item']['author']['name']}}</h5>

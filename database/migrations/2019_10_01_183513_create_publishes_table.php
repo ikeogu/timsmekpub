@@ -21,8 +21,8 @@ class CreatePublishesTable extends Migration
             $table->string('isbn');
             $table->string('price');
             $table->string('available');
-            $table->string('content');
-            $table->string('cover_page');
+            $table->longText('content');
+            $table->longText('cover_page');
             $table->string('isbn');
             $table->integer('status');
 

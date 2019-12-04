@@ -62,7 +62,7 @@
                             <div class="card">
                                 <div class="front mb-5">
                                     <div class="product">
-                                    <img class="img-circle" src="/storage/cover_page/{{$item->cover_page}}" />
+                                    <img class="img-circle" src="{{$item->cover_page}}" />
                                     </div>
                                     <div class="content text-center">
                                     <h6 class="f-w-600 m-b-10">{{$item->title}}</h6>

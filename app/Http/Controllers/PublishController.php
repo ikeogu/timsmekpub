@@ -13,6 +13,8 @@ use Paystack;
 use App\Purchase;
 use App\Order;
 use App\User;
+use Cloudder;
+use Cloudinary;
 
 use App\Mail\Mailtrap;
 use Illuminate\Support\Facades\Mail;
@@ -77,32 +79,40 @@ class PublishController extends Controller
         ]);
 
         if($request->hasFile('content')){
-            //get file name with extension
-            $fileNameWithExt = $request->file('content')->getClientOriginalName();
-            //get just file name
-            $filename = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
-            //get just extension
-            $extension =  $request->file('content')->getClientOriginalExtension();
-            //file name to store
-            $fileNameToSave = $filename.'_'.time().'.'.$extension;
-            //upload image
-            $path =  $request->file('content')->storeAs('public/publish/', $fileNameToSave);
-        }else{
-            $fileNameToSave= 'nofile.mime';
+            // //get file name with extension
+            // $fileNameWithExt = $request->file('content')->getClientOriginalName();
+            // //get just file name
+            // $filename = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+            // //get just extension
+            // $extension =  $request->file('content')->getClientOriginalExtension();
+            // //file name to store
+            // $fileNameToSave = $filename.'_'.time().'.'.$extension;
+            // //upload image
+            // $path =  $request->file('content')->storeAs('public/publish/', $fileNameToSave);
+            $book_content = $request->file('content')->getRealPath();
+            
+
+$ace = Cloudinary\Uploader::upload($book_content, array( "public_id" => "book_content","resource_type"=>"image",   "format"=>"pdf","api_key"=>"757627628485111", "api_secret"=>"VsIvWf9mBJASAd9hEmdUvHm28bo","cloud_name"=>"hyaoowl23"));
+
+            $book_content = data_get($ace,'url');
+            
         }
         if($request->hasFile('cover_page')){
-            //get file name with extension
-            $fileNameWithExt = $request->file('cover_page')->getClientOriginalName();
-            //get just file name
-            $filenames = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
-            //get just extension
-            $extension = $request->file('cover_page')->getClientOriginalExtension();
-            //file name to store
-            $fileNameToStore = $filenames.'_'.time().'.'.$extension;
-            //upload image
-            $path = $request->file('cover_page')->storeAs('public/cover_page/', $fileNameToStore);
-        }else{
-            $fileNameToStore = 'noimage.jpg';
+            // //get file name with extension
+            // $fileNameWithExt = $request->file('cover_page')->getClientOriginalName();
+            // //get just file name
+            // $filenames = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+            // //get just extension
+            // $extension = $request->file('cover_page')->getClientOriginalExtension();
+            // //file name to store
+            // $fileNameToStore = $filenames.'_'.time().'.'.$extension;
+            // //upload image
+            // $path = $request->file('cover_page')->storeAs('public/cover_page/', $fileNameToStore);
+            $image = $request->file('cover_page')->getRealPath();
+
+            Cloudder::upload($image, null);
+
+            $image_url = Cloudder::show(Cloudder::getPublicId());
         }
         
         $book = new Publish();
@@ -124,8 +134,9 @@ class PublishController extends Controller
 
         $book->author_id = $request->author_id;
         
-        $book->content = $fileNameToSave;
-        $book->cover_page = $fileNameToStore;
+        $book->content = $book_content;
+        $book->cover_page = $image_url;
+        //dd($book->content,$book->cover_page);
         if($book->save()){
          return redirect(route('publish.create'))->with('success','Book Published');
         }
@@ -193,7 +204,7 @@ class PublishController extends Controller
     public function downloadPDF($id){
         $article= Publish::find($id);
         //dd($article);
-        $file_path = public_path('storage/publish/'.$article->content);
+        $file_path = public_path($article->content);
         return response()->download($file_path);
     }
 
