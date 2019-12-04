@@ -2,7 +2,9 @@
 
 @section('content')
 <div class="container mt-5">
-    <marquee behavior="" direction="left"><h6 class="article">Join our authors, submit your works to Timsmek Global Publishers.</h6></marquee>
+    <marquee behavior="" direction="left">
+		  <h6 class="article">Join our authors, submit your works to Timsmek Global Publishers.</h6>
+		</marquee>
     <div class="row">
       <div class="col-md-6 m-auto">
         <h5>Join our community of authors and readers. Sign up below.<br> It is easy and free.</h5>
@@ -94,7 +96,8 @@
               <input id="password-confirm" type="password" class="form-control py-4" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
             </div>
             <div class="form-check mb-2">
-                <input type="checkbox" value="1" name="agree" class="form-check-input"><small> By clicking sidn up button below, you agree to our Terms and conditions and Privacy Policy.</small>
+                <input type="checkbox" value="1" name="agree" class="form-check-input"><small> By signing up ,
+								you agree to our Terms and conditions and Privacy Policy.</small>
             </div>
             <div class="form-check mb-3">
                 <input type="checkbox" value="yes" name="newslater" class="form-check-input"><small> Subscribe me to Timsmek Newsletter.</small>
