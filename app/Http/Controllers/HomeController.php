@@ -32,14 +32,14 @@ class HomeController extends Controller
         if(Auth::user()->isAdmin== 1||Auth::user()->isAdmin== 2){
             return redirect(route('admindashboard'));
         }   
-        $blog = Blog::paginate(3);
-        $book = Publish::paginate(10);
+        $blog = Blog::all()->take(3);
+        $book = Publish::all()->take(10);
         $recent = Publish::latest()->take(8)->get();
         return view('pages/index',['recent'=>$recent,'blog'=>$blog, 'book'=>$book,]); 
     }
     public function first(){
-        $blog = Blog::paginate(3);
-        $book = Publish::paginate(10);
+        $blog = Blog::all()->take(3);
+        $book = Publish::all()->take(10);
         $recent = Publish::latest()->take(8)->get();
         // dd($recent);
         return view('pages/index',['blog'=>$blog, 'book'=>$book,'recent'=>$recent]);
