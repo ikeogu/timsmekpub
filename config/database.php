@@ -8,6 +8,7 @@ $host = $url["host"] ?? null;
 $username = $url["user"] ?? null;
 $password = $url["pass"] ?? null;
 $database = substr($url["path"], 1) ?? null;
+$charset = 'utf8';
 
 
 return [
@@ -23,7 +24,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'pgsql'),
+    'default' =>  'pgsql',
 
     /*
     |--------------------------------------------------------------------------
@@ -77,7 +78,7 @@ return [
             'database' => $database,
             'username' => $username,
             'password' => $password,
-            'charset'  => 'utf8',
+            'charset'  => $charset,
             'prefix'   => '',
             'schema'   => 'public',
         ],
