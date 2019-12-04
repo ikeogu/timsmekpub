@@ -23,7 +23,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'pg'),
+    'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -43,7 +43,7 @@ return [
 
     'connections' => [
 			
-			 'pg' => [
+			 'pgsql' => [
             'driver'   => 'pgsql',
             'host'     => $host,
             'database' => $database,
