@@ -79,10 +79,10 @@ class BlogController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($blog)
-    {
-        $recent = Blog::latest()->take(4)->get();
-        $blog = Blog::find($blog);
-        return view('blog/show',['blog'=>$blog,'recent'=>$recent]);
+//     {
+//         $recent = Blog::latest()->take(4)->get();
+//         $blog = Blog::find($blog);
+//         return view('blog/show',['blog'=>$blog,'recent'=>$recent]);
     }
 
     /**
