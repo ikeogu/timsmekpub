@@ -563,6 +563,15 @@ main .banner img {
   text-align: center;
   color: var(--main-color);
 }
+.article2 {
+ box-shadow: var(--box-shadows);
+  padding: 20px 10px;;
+  white-space: nowrap;
+  
+  font-size: 1.2rem;
+  text-align: center;
+  color: var(--main-color);
+}
 /* =======================================================================
     Card
 =============================================================================*/
