@@ -24,7 +24,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'pgsql'),
+    'default' => env('DB_CONNECTION', 'pgsql_production'),
 
     /*
     |--------------------------------------------------------------------------
@@ -72,7 +72,7 @@ return [
             ]) : [],
         ],
 
-        'pgsql' => [
+        'pgsql_production' => [
             'driver'   => 'pgsql',
             'host'     => $host,
             'database' => $database,
