@@ -23,7 +23,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'pgsql'),
+    'default' => env('DB_CONNECTION', 'pg'),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,6 +42,17 @@ return [
     */
 
     'connections' => [
+			
+			 'pg' => [
+            'driver'   => 'pgsql',
+            'host'     => $host,
+            'database' => $database,
+            'username' => $username,
+            'password' => $password,
+            'charset'  => 'utf8',
+            'prefix'   => '',
+            'schema'   => 'public',
+        ],
 
         'sqlite' => [
             'driver' => 'sqlite',
@@ -71,16 +82,7 @@ return [
             ]) : [],
         ],
 
-        'pgsql' => [
-            'driver'   => 'pgsql',
-            'host'     => $host,
-            'database' => $database,
-            'username' => $username,
-            'password' => $password,
-            'charset'  => 'utf8',
-            'prefix'   => '',
-            'schema'   => 'public',
-        ],
+        
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
