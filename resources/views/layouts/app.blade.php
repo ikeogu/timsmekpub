@@ -115,7 +115,7 @@
 		
 		<footer>
 			<section id="quick-links">
-			  <div class="container">
+			  <div class="container-fluid">
 					<div class="row ">
 						<div class="col-4 m-0">
 							<div class="time-logo">
@@ -125,8 +125,8 @@
 								quia pariatur enim dolore voluptatem quibusdam ducimus dignissimos ex ea, eveniet consectetur repellendus.
 							</p>
 						</div>
-						<div class="col-4 m-0">
-							<div class="links ml-5">
+						<div class="col-md-4 m-0">
+							<div class="links ">
 								<h4>Quick links</h4>
 								<ul class="nav-link">
 									<li><a href="{{url('/')}}">Home</a></li>
@@ -139,8 +139,8 @@
 								</ul>
 							</div>
 						</div>
-						<div class="col-4 m-0 ">
-							<div class="contact-footer pl-5">
+						<div class="col-md-4 m-0 ">
+							<div class="contact-footer ">
 								<h4>Contact </h4> 
 								<p>Address :</p>
 								<p>Email :</p>mails@timeks.com
@@ -155,15 +155,13 @@
 							</div>
 						</div>
 					</div>
-					
+					<p  class="justify-content-center"> 
+				<span>Copyright &copy; {{date('Y')}} Timsmek Global Publishers. All rights reserved </span></p>
+				
 				</div>
 			</section>
 
-			<section class="container" >
-				<p  class="justify-content-center"> 
-				<span>Copyright &copy; {{date('Y')}} Timsmek Global Publishers. All rights reserved </span></p>
-				
-			</section>
+			
 		</footer>
 		
 	
