@@ -55,15 +55,15 @@
                             @method('put')
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                    <input type="text" value="{{$user->first_name}}" required name="first_name" class="form-control" placeholder="First name">
+                                    <input type="text" value="{{$user->first_name}}" required name="first_name" class="form-control" >
                                     </div>
                                     <div class="form-group col-md-6">
-                                    <input type="text" value="{{$user->last_name}}" required name="last_name" class="form-control" placeholder="Last name">
+                                    <input type="text" value="{{$user->last_name}}" required name="last_name" class="form-control" >
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                    <input type="email" value="{{$user->email}}" name="email" required class="form-control" placeholder="E-mail">
+                                    <input type="email" value="{{$user->email}}" name="email" required class="form-control">
                                     </div>
                                     <div class="form-group col-md-6">
                                     <input type="text" value="{{$user->phone}}" name="phone" required class="form-control" placeholder="Phone number">
@@ -74,6 +74,10 @@
                                 <div class="form-group">
                                 <input type="text" value="{{$user->address}}" name="address" class="form-control" placeholder="Apartment, street, or floor">
                                 </div>
+                                <h5 class="mt-md-4">City</h5>
+                                <div class="form-group">
+                                        <input type="text" value="{{$user->city}}" name="city" class="form-control" placeholder="Port Harcourt">
+                                        </div>
                                 <h5 class="mt-md-4">Zip code</h5>
                                 <div class="form-group">
                                 <input type="text" value="{{$user->zip}}" name="zip" class="form-control" placeholder="500006">
@@ -81,7 +85,7 @@
 
                                 
 
-                               
+                                <h5 class="mt-md-4">State</h5>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                     <input type="text" name="state" value="{{$user->state}}" required class="form-control" placeholder="state">

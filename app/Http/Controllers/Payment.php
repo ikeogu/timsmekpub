@@ -64,4 +64,9 @@ class Payment extends Controller
 
         }
     }
+
+    public function transactions(){
+        $tranx = Purchase::all();
+        return view('admin/payment',['tranx'=>$tranx]);
+    }
 }

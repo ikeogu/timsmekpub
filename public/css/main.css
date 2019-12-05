@@ -88,6 +88,7 @@ h6 {
   --main-color: #ee4540;
   --text-color: #333;
   --box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
+  --box-shadows: 5px 10px 8px 10px #e09797;
 }
 
 /* Button
@@ -554,9 +555,19 @@ main .banner img {
 }
 
 .article {
-  box-shadow: var(--box-shadow);
-  padding: 20px 10px;
+  box-shadow: var(--box-shadows);
+  padding: 20px 10px;;
   white-space: nowrap;
+  width: 650px;
+  font-size: 1.2rem;
+  text-align: center;
+  color: var(--main-color);
+}
+.article2 {
+  box-shadow: var(--box-shadows);
+  padding: 20px 10px;;
+  white-space: nowrap;
+ 
   font-size: 1.2rem;
   text-align: center;
   color: var(--main-color);
@@ -1207,6 +1218,17 @@ footer {
    Modify as content requires.
    ========================================================================== */
 
+   @media (max-width: 768px) {
+    .navbar-default {
+        display: none !important;
+    }
+}
+@media (min-width: 769px) {
+    .navbar-default {
+        display: block !important;
+    }
+}
+
 @media (min-width: 768px) {
 }
 
@@ -1251,7 +1273,7 @@ footer {
     border-radius: none;
     text-align: center;
   }
-
+  
   nav {
     background: var(--main-color);
     padding: 0 15px;
@@ -1319,7 +1341,7 @@ footer {
     padding-top: 10px;
     z-index: 3;
   }
-  nav #toggler div {
+   #toggler div {
     width: 30px;
     height: 3px;
     background: #fff;

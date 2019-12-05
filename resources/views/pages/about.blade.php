@@ -71,7 +71,7 @@
           <div class="card user-card mt-5">
             <div class="card-block">
               <div class="user-image">
-              <img src="/storage/editors/{{$item->photo}}" class="img-radius" alt="User-Profile-Image">
+              <img src="{{$item->photo}}" class="img-radius" alt="User-Profile-Image">
               </div>
               <h6 class="f-w-600 m-t-25 m-b-10">{{$item->name}}</h6>
               

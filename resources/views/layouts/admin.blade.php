@@ -111,7 +111,9 @@
                 <i class="fas fa-fw fa-user"></i>
                 <span>Blog Posts</span></a>
             </li>
-        @elseif(Auth::user()->isAdmin === 1)
+
+        @endif
+        @if(Auth::user()->isAdmin === 1)
             <li class="nav-item active">
                  <a class="nav-link" href="{{route('service.create')}}">
                 <i class="fas fa-fw fa-chart-area"></i>
@@ -119,13 +121,22 @@
               </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="payment.html">
+            <a class="nav-link" href="{{route('stransactions')}}">
                 <i class="fas fa-fw fa-chart-area"></i>
-                <span>Payment made</span></a>
+                <span>Softcopy Payments</span></a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{route('allOrders')}}">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Hardcopy Orders</span></a>
             </li>
             <!-- Nav Item - Tables -->
-           
-             
+            
+            <li class="nav-item">
+                    <a class="nav-link" href="{{route('viewCustomers')}}">
+                            <i class="fas fa-fw fa-chart-area"></i>
+                            <span>View Customers</span></a>
+                    </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="{{route('contact.index')}}">

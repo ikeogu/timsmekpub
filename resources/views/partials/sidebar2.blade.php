@@ -6,7 +6,7 @@
             </div> -->
             <div class="card-body">
             <a href="{{route('article.create')}}">
-                <h4 class="article">Submit Article for publication</h4>
+                <h4 class="article2">Submit an Article for publication</h4>
               </a>
               <hr>
 

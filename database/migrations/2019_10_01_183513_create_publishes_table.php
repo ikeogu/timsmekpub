@@ -23,7 +23,7 @@ class CreatePublishesTable extends Migration
             $table->string('available');
             $table->longText('content');
             $table->longText('cover_page');
-            $table->string('isbn');
+            
             $table->integer('status');
 
             $table->string('description');

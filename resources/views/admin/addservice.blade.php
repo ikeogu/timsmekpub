@@ -28,7 +28,7 @@
             </div>
             <!-- Card Body -->
             <div class="card-body">
-					<form class="user" action="{{route('service.store')}}" method="POST">
+					<form class="user" action="{{route('service.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                         <div class="form-group">
                             <input type="file" class="form-control form-control-user" id="Name" aria-describedby="name"

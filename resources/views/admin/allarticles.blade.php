@@ -24,7 +24,7 @@
                         <td>{{$item->name}}</td>
                         <td>{{$item->title}}</td>
                         <td>{{$item->email}}</td>
-                        {{-- <td>{{$item->category()->name}}</td> --}}
+                        <td>{{$item->category->name}}</td> 
                         <td>{{$item->code}}</td>
                         <td class="d-flex justify-content-between flex-wrap">
  

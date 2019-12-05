@@ -17,10 +17,11 @@ class CreateAddFieldsToUsersTable extends Migration
             $table->integer('status')->nullable();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
-            
+            $table->string('zip')->nullable();
             $table->text('address')->nullable();
             $table->string('country')->nullable();
-            $table->string('state');
+            $table->string('state')->nullable();
+            $table->string('city')->nullable();
            
         });
     }

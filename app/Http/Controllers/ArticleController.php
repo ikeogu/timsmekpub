@@ -8,6 +8,10 @@ use App\Publish;
 use Illuminate\Http\Request;
 use Auth;
 use App\Category;
+
+use Cloudder;
+use Cloudinary;
+
 class ArticleController extends Controller
 {   public function __construct()
     {
@@ -45,41 +49,49 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all());
         $this->Validate(request(),[
             'name' => 'required',
             'email'=> 'required',
             'content' => 'required'
         ]);
+
         if($request->hasFile('content')){
+            
             //get file name with extension
-            $fileNameWithExt = $request->file('content')->getClientOriginalName();
-            //get just file name
-            $filenames = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
-            //get just extension
-            $extension = $request->file('content')->getClientOriginalExtension();
-            //file name to store
-            $fileNameToStore = $filenames.'_'.time().'.'.$extension;
-            //upload image
-            $path = $request->file('content')->storeAs('public/article_Content/', $fileNameToStore);
-        }else{
-            $fileNameToStore = 'nofile.pdf';
+            // $fileNameWithExt = $request->file('content')->getClientOriginalName();
+            // //get just file name
+            // $filenames = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+            // //get just extension
+            // $extension = $request->file('content')->getClientOriginalExtension();
+            // //file name to store
+            // $fileNameToStore = $filenames.'_'.time().'.'.$extension;
+            // //upload image
+            // $path = $request->file('content')->storeAs('public/article_Content/', $fileNameToStore);
+            // $fileNameWithExt = $request->file('content')->getClientOriginalName();
+            $article_cont = $request->file('content')->getRealPath();
+            
+
+            $ace = Cloudinary\Uploader::upload($article_cont, array( "resource_type"=>"image",   "format"=>"pdf","api_key"=>"757627628485111", "api_secret"=>"VsIvWf9mBJASAd9hEmdUvHm28bo","cloud_name"=>"hyaoowl23"));
+            
+            $article_url = data_get($ace,'url');
+            
         }
-
-
-        $article = new Article();
-        $article->title = $request->title;
-        $article->email = $request->email;
-        $article->name = $request->name;
-        $article->content = $fileNameToStore;
-        $article->category_id = $request->cat_id;
-        //assign <code class=""></code>
-       
-        $article->code = date("Y").$article->count() + 1;
-        
-
-        if($article->save()){
-            return redirect(route('article.submit'))->with('success', 'Your work has been recieved! <br>One of our editors will get back to you shortly.');
-        }
+            $article = new Article();
+            $article->title = $request->title;
+            $article->email = $request->email;
+            $article->name = $request->name;
+            $article->content = $article_url; 
+            //$fileNameToStore;
+           
+            $article->category_id = $request->cat_id;
+            //assign <code class=""></code>
+           
+            $article->code = date("Y").$article->count() + 1;
+            
+            if($article->save()){
+                return redirect(route('articlesubmit'))->with('success', 'Your work has been recieved! One of our editors will get back to you shortly.');
+            }      
 
     }
      
@@ -142,7 +154,7 @@ class ArticleController extends Controller
     public function downloadPDF($id){
         $article= Article::find($id);
         //dd($article);
-        $file_path = public_path('/storage/article_Content/'.$article->content);
+        $file_path = $article->content; //public_path('/storage/article_Content/'.$article->content);
         return response()->download($file_path);
 
 
@@ -150,7 +162,8 @@ class ArticleController extends Controller
     public function readBook($id)
     {
         $file = Article::find($id);
-        $file_path = public_path('/storage/article_Content/'.$file->content);
+        $file_path = str_replace('""'," ",$file->content);//public_path('/storage/article_Content/'.$file->content);
+        dd($file_path);
         return response()->file($file_path);
 
     }

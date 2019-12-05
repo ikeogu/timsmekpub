@@ -78,7 +78,7 @@ return [
             'database' => $database,
             'username' => $username,
             'password' => $password,
-            'charset'  => $charset,
+            'charset'  => 'utf8',
             'prefix'   => '',
             'schema'   => 'public',
         ],

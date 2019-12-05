@@ -22,9 +22,9 @@
             <div class="alert alert-success">
                 <p>{{ \Session::get('success') }}</p>
             </div><br />
-          @endif
+          @endif 
           
-            <form action="{{route('article.store')}}" method="POST">
+            <form action="{{route('article.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
               <div class="form-group mb-4 mr-sm-2">
               <input type="text" class="form-control py-4"  name="name" value="{{Auth::user()->name}}">

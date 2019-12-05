@@ -82,11 +82,12 @@
                            </div>
                     </div>
                 </div>
+                <br><br>
                 @if(count($orders) > 0)
                 <div class="row justify-content-center">
                         <div class="featured-product">
                             <div class="featured-title container">
-                                <h2>Buyers who bought this item also bought:</h2>
+                                <h4>Buyers who bought this item also bought:</h4>
                                 <hr>
                             </div>
                             <div class="container">

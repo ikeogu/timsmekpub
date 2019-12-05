@@ -80,7 +80,7 @@
                       <tr>
                             <td>{{$item->caption}}</td>
                             <td class="text-center">
-                            <img class="rounded-circle" src="/storage/blog_post/{{$item->image}}" alt="{{$item->id}}" height="80" width="70">
+                            <img class="rounded-circle" src="{{$item->image}}" alt="{{$item->id}}" height="80" width="70">
                               <span>{{$item->caption}}</span>
                             </td>
                             <td>{{$item->body}}</td>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use Illuminate\Http\Request;
+use Cloudder;
+use Cloudinary;
 
 class BlogController extends Controller
 {
@@ -47,23 +49,31 @@ class BlogController extends Controller
             'writter'=> 'required',
             'image'=>'required'
         ]);
+        // if($request->hasFile('image')){
+        //     //get file name with extension
+        //     $fileNameWithExt = $request->file('image')->getClientOriginalName();
+        //     //get just file name
+        //     $filenames = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+        //     //get just extension
+        //     $extension = $request->file('image')->getClientOriginalExtension();
+        //     //file name to store
+        //     $fileNameToStore = $filenames.'_'.time().'.'.$extension;
+        //     //upload image
+        //     $path = $request->file('image')->storeAs('public/blog_post/', $fileNameToStore);
+        // }else{
+        //     $fileNameToStore = 'noimage.jpg';
+        // }
+
         if($request->hasFile('image')){
-            //get file name with extension
-            $fileNameWithExt = $request->file('image')->getClientOriginalName();
-            //get just file name
-            $filenames = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
-            //get just extension
-            $extension = $request->file('image')->getClientOriginalExtension();
-            //file name to store
-            $fileNameToStore = $filenames.'_'.time().'.'.$extension;
-            //upload image
-            $path = $request->file('image')->storeAs('public/blog_post/', $fileNameToStore);
-        }else{
-            $fileNameToStore = 'noimage.jpg';
+            $image = $request->file('image')->getRealPath();
+
+            Cloudder::upload($image, null);
+
+            $image_url = Cloudder::show(Cloudder::getPublicId());
         }
 
         $blog = new Blog();
-        $blog->image = $fileNameToStore;
+        $blog->image = $image_url;//$fileNameToStore;
         $blog->caption = $request->caption;
         $blog->body = $request->body;
         $blog->writter = $request->writter;
@@ -79,10 +89,10 @@ class BlogController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($blog)
-//     {
-//         $recent = Blog::latest()->take(4)->get();
-//         $blog = Blog::find($blog);
-//         return view('blog/show',['blog'=>$blog,'recent'=>$recent]);
+    {
+        $recent = Blog::latest()->take(4)->get();
+        $blog = Blog::find($blog);
+        return view('blog/show',['blog'=>$blog,'recent'=>$recent]);
     }
 
     /**
@@ -123,6 +133,6 @@ class BlogController extends Controller
         //
         $blog = Blog::find($blog);
         $blog->delete();
-        return redirect(route('blogs'))->wih('Danger','Post Deleted');
+        return redirect(route('blogs'))->with('Danger','Post Deleted');
     }
 }

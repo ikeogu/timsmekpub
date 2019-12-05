@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Editor;
 use Illuminate\Http\Request;
-
+use Cloudinary;
+use Cloudder;
 class EditorController extends Controller
 {
     public function __constructor(){
@@ -47,26 +48,32 @@ class EditorController extends Controller
            'photo' => 'required',
            'bio' => 'required'
        ]);
-       if($request->hasFile('photo')){
-        //get file name with extension
-        $fileNameWithExt = $request->file('photo')->getClientOriginalName();
-        //get just file name
-        $filenames = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
-        //get just extension
-        $extension = $request->file('photo')->getClientOriginalExtension();
-        //file name to store
-        $fileNameToStore = $filenames.'_'.time().'.'.$extension;
-        //upload image
-        $path = $request->file('photo')->storeAs('public/editors/', $fileNameToStore);
-    }else{
-        $fileNameToStore = 'noimage.jpg';
-    }
+    //    if($request->hasFile('photo')){
+    //     //get file name with extension
+    //     $fileNameWithExt = $request->file('photo')->getClientOriginalName();
+    //     //get just file name
+    //     $filenames = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+    //     //get just extension
+    //     $extension = $request->file('photo')->getClientOriginalExtension();
+    //     //file name to store
+    //     $fileNameToStore = $filenames.'_'.time().'.'.$extension;
+    //     //upload image
+    //     $path = $request->file('photo')->storeAs('public/editors/', $fileNameToStore);
+    // }else{
+    //     $fileNameToStore = 'noimage.jpg';
+    // }
+    if($request->hasFile('photo')){
+        $image = $request->file('photo')->getRealPath();
 
+        Cloudder::upload($image, null);
+
+        $image_url = Cloudder::show(Cloudder::getPublicId());
+    }
        $editor = new Editor();
        $editor->name = $request->name;
        $editor->email = $request->email;
        $editor->bio = $request->bio;
-       $editor->photo  = $fileNameToStore;
+       $editor->photo  = $image_url;//$fileNameToStore;
        if($editor->save()){
         return redirect(route('editors.index'))->with('success','Editor added');
 

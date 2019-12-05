@@ -94,7 +94,7 @@
               <input id="password-confirm" type="password" class="form-control py-4" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
             </div>
             <div class="form-check mb-2">
-                <input type="checkbox" value="1" name="agree" class="form-check-input"><small> By clicking sidn up button below, you agree to our Terms and conditions and Privacy Policy.</small>
+                <input type="checkbox" value="1" name="agree" class="form-check-input"><small> By signing up, you agree to our Terms and conditions and Privacy Policy.</small>
             </div>
             <div class="form-check mb-3">
                 <input type="checkbox" value="yes" name="newslater" class="form-check-input"><small> Subscribe me to Timsmek Newsletter.</small>

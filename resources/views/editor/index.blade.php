@@ -80,7 +80,7 @@
                          <tr>
                         <td>{{$item->name}}</td>
                         <td class="text-center">
-                            <img src="/storage/editors/{{$item->photo}}" height="50"width="60" alt="{{$item->name}}">
+                            <img src="{{$item->photo}}" height="50"width="60" alt="{{$item->name}}">
                         </td>
                         <td>{{$item->email}}</td>
                         <td>{{$item->bio}}</td>

@@ -74,6 +74,8 @@ class RegisterController extends Controller
             'phone' =>$data['phone'],
             'agree' => 1,
             'isAdmin' => 3,
+            'role'=>'User',
+            
             'newslater' => $data['newslater']
         ]);
     }

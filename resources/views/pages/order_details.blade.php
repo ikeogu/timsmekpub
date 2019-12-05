@@ -133,7 +133,7 @@
                                                 rows="3" placeholder="Type here..!!"></textarea>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-outline-inf">Send</button>
+                                    <button type="submit" class="btn btn-outline-danger">Send</button>
                                 </form>
                             </div>
                         </div>

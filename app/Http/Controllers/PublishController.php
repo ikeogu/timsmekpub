@@ -340,6 +340,8 @@ $ace = Cloudinary\Uploader::upload($book_content, array( "public_id" => "book_co
            }
            $order->save();
            $user = User::findOrFail($order->user_id);
+           $user->role = 'customer';
+           $user->save();
            $user->notify(new NewOrder($order->order_id));
 
        }
@@ -349,6 +351,12 @@ $ace = Cloudinary\Uploader::upload($book_content, array( "public_id" => "book_co
 
  }
     
+
+ public function orders(){
+     $order = Order::all();
+     
+     return view('admin/orders',['order'=>$order]);
+ }
 
  public function profile(){
     if(Auth::user()){

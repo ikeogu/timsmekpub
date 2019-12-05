@@ -76,15 +76,15 @@
 					</form>
 				</div>
 			</div>
-			<nav>
+			<nav >
 				<div id="toggler" class="small">
 					<div></div>
 					<div></div>
 					<div></div>
 				</div>
-				<ul class="small-side" id="myNav">
+				<ul class="small-side" class="navbar-default">
 					<li class="list"><a href="/" class="active">Home</a></li>
-					<li class="list"><a href="/about">About us <i class="fa fa-chevron-down"></i></a>
+					<li class="list"><a href="/about">About us</a>
 					</li>
 					<li class="list"><a href="{{route('authors.index')}}">Our Authors</a></li>
 					
@@ -115,9 +115,9 @@
 		
 		<footer>
 			<section id="quick-links">
-			  <div class="container">
+			  <div class="container-fluid">
 					<div class="row ">
-						<div class="col-md-4 m-0">
+						<div class="col-md-4 m-0 ">
 							<div class="time-logo">
 								<img src="{{asset('img/logo.png')}}" alt="" class="img-fluid" width="300">
 							</div>
@@ -125,8 +125,8 @@
 								quia pariatur enim dolore voluptatem quibusdam ducimus dignissimos ex ea, eveniet consectetur repellendus.
 							</p>
 						</div>
-						<div class="col-md-4 m-0">
-							<div class="links ml-5">
+						<div class="col-md-4 ">
+							<div class="links ">
 								<h4>Quick links</h4>
 								<ul class="nav-link">
 									<li><a href="{{url('/')}}">Home</a></li>
@@ -139,8 +139,8 @@
 								</ul>
 							</div>
 						</div>
-						<div class="col-md-4 m-0">
-							<div class="contact-footer pl-5">
+						<div class="col-md-4 ">
+							<div class="contact-footer ">
 								<h4>Contact </h4> 
 								<p>Address :</p>
 								<p>Email :</p>mails@timeks.com
@@ -155,14 +155,14 @@
 							</div>
 						</div>
 					</div>
-					
+					<p  class="justify-content-center"> <span>Copyright &copy; {{date('Y')}} Timsmek Global Publishers. All rights reserved </span></p>
+				
 				</div>
+				
 			</section>
 
-			<section class="container-fluid" >
-				<p  class="justify-content-center"> <span>Copyright &copy; {{date('Y')}} Timsmek Global Publishers. All rights reserved </span></p>
-				<p class="justify-content-left">Design by  <a href="#">Kaiyleb_dev</a> &&  <a href="https://emmanuel-chidera.netlify.com">Emmanuel</a></p> 
-			  
+			<section class="container " >
+				
 			</section>
 		</footer>
 		
@@ -189,6 +189,7 @@
 		</script>
 		<script src="https://www.google-analytics.com/analytics.js" async></script>
 		<script>
+			
 			window.onclick = function (event) {
 				if (!event.target.matches('view')) {
 					var dropdowns = document.getElementsByClassName("overlay");

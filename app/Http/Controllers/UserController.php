@@ -67,6 +67,7 @@ class UserController extends Controller
             'phone' =>$data['phone'],
             'agree' => 1,
             'isAdmin' => 3,
+            
             'newslater' => $data['newslater']
         ]);
     }
@@ -78,11 +79,22 @@ class UserController extends Controller
             'last_name' => 'nullable',
             'phone' => 'nullable',
             'address' => 'nullable',
-            // 'country_id' => 'nullable',
+            'country' => 'nullable',
             'state' => 'nullable',
+            'city' => 'nullable',
             'zip' => 'nullable',
         ]);
         
-      return Auth::user()->update($request->except(['_method','_token'])) ? redirect(route('profile')) : back()->with('success','Profile Updated!');
+        $user = User::findOrFail(Auth::user()->id);
+        $user->email = $request->email;
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->country = $request->country;
+        $user->state = $request->state;
+        $user->zip = $request->zip;
+        return $user->save() ? redirect(route('profile')) : back()->with('success','Profile Updated!');
+       
     }
 }

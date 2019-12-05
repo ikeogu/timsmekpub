@@ -29,6 +29,7 @@ Route::get('/about', 'EditorController@index2');
 
 //subdomain for
 Route::resource('article', 'ArticleController');
+Route::get('article_subit','ArticleController@submit')->name('articlesubmit');
 Route::resource('authors','AuthorController');
 Route::resource('blog', 'BlogController');
 Route::resource('contact','ContactController');
@@ -57,6 +58,8 @@ Route::get('/article_category/{key}', 'PublishController@art_cat')->name('art_ca
     Route::get('/allusers','Admin@users')->name('users');
     Route::get('/makeUserAdmin/{key}','Admin@isAdmin')->name('isAdmin');
     Route::get('/RemoveUserAdmin/{key}','Admin@RisAdmin')->name('RisAdmin');
+    //transactions
+
 
 // });
     
@@ -99,5 +102,21 @@ Route::post('/send', 'EmailController@send');
    // Route::get('getContactForm', 'PagesController@getContactForm')->name('getContactForm');
     Route::post('postContact', 'PublishController@postContact')->name('postContact'); 
     Route::post('postComplain','PublishController@postComplain')->middleware('auth')->name('postComplain');  
-    
-
+    //transactions
+    Route::get('softCopy_transactions','Payment@transactions')->name('stransactions');
+    //Route::get('hardcopy_transactions','PublishController@orders')->name('htransactions');
+    //Orders
+    Route::get('allOrders', 'Admin@allOrders')->name('allOrders');
+    Route::get('generalOrdersQuery/{status}', 'Admin@generalOrdersQuery')->name('orders');
+    Route::get('pendingOrders/{status}', 'Admin@pendingOrders')->name('pendingOrders');
+    Route::get('newOrders', 'Admin@newOrders')->name('newOrders');
+    Route::get('inProgress/{status}', 'Admin@inProgress')->name('inProgress');
+    Route::get('rejectedOrders/{status}', 'Admin@rejectedOrders')->name('rejectedOrders');
+    Route::get('cancelledOrders/{status}', 'Admin@cancelledOrders')->name('cancelledOrders');
+    Route::get('completedOrders/{status}', 'Admin@completedOrders')->name('completedOrders');
+    Route::get('orderItem/{id}', 'Admin@orderItem')->name('orderItem');
+    Route::get('changeStatus/{id}/{status}','Admin@changeStatus' )->name('changeStatus');
+    Route::get('changeUserStatus/{id}','Admin@changeUserStatus' )->name('changeUserStatus');
+    //customers
+    Route::get('viewCustomers','Admin@viewCustomers')->name('viewCustomers');
+    Route::get('viewCustomer/{id}','Admin@viewCustomer')->name('viewCustomer');

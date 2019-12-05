@@ -10,18 +10,18 @@
             </div>
             <div class="blog-body">
               <p class="blog-content mb-3">{{str_limit($blog->body, $limit = 50, $end = '..')}}</p>
-              <img src="/storage/blog_post/{{$blog->image}}" alt="{{$blog->caption}}" class="img-fluid">
+              <img src="{{$blog->image}}" alt="{{$blog->caption}}"  height="370" width="auto">
               <p class="blog-content mt-5">{!!nl2br($blog->body)!!}</p>
 
               
             </div>
             <div class="about-author my-5 d-flex bg-light p-5">
               <div class="author-img mr-5">
-                <img src="/storage/blog_post/{{$blog->image}}" alt="" class="img-fluid" width="200">
+                <img src="{{$blog->image}}" alt="" class="img-fluid" width="200">
               </div>
               <div class="decs">
                 <h4>{{$blog->writter}}</h4>
-                <p>Study to show yourself approved. New Discoveries and New interventions are they result of Hardwork.</p>
+                <p></p>
               </div>
             </div>
             
@@ -46,7 +46,7 @@
               @foreach ($recent as $item)
               <div class="d-flex mt-2">
                 <a href="#" class="blog-img mr-4">
-                  <img src="/storage/blog_post/{{$item->image}}" alt="" class="img-fluid">
+                  <img src="{{$item->image}}" alt="" class="img-fluid">
                 </a>
                 <div class="text">
                   <h4 class="heading">

@@ -16,7 +16,7 @@
                         <div class="col-md-4">
                             <a href="/blog/{{$item->id}}" class="blog-card mt-5">
                               <div class="card-img">
-                              <img src="/storage/blog_post/{{$item->image}}" alt="" class="img-fluid">
+                              <img src="{{$item->image}}" alt="" class="img-fluid">
                               </div>
                               <div class="blog-title">
                                 <h3 class="heading">{{$item->caption}}</h3>
@@ -34,7 +34,7 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="sidebar-box mt-5">
+            {{-- <div class="sidebar-box mt-5">
               <form action="" class="search-form">
                 <div class="input-group mb-2 mr-sm-2">
                   <input type="text" class="form-control" placeholder="Search">
@@ -45,8 +45,8 @@
                   </div>
                 </div>
               </form>
-            </div>
-            <div class="sidebar-box">
+            </div> --}}
+            {{-- <div class="sidebar-box">
               <h4 class="heading-sidebar">Categories</h4>
               <ul class="categories">
                 <li>
@@ -84,8 +84,8 @@
                   </a>
                 </li>
               </ul>
-            </div>
-            <div class="sidebar-box">
+            </div> --}}
+            {{-- <div class="sidebar-box">
               <h4 class="heading-sidebar">Pupolar Post</h4>
               <div class="d-flex mt-2">
                 <a href="#" class="blog-img mr-4">
@@ -149,7 +149,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> --}}
           </div>
         </div>
       </div>
