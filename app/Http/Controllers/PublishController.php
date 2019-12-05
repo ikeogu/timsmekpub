@@ -16,6 +16,8 @@ use App\User;
 use Cloudder;
 use Cloudinary;
 
+use Notification;
+use App\Notifications\MailSent;
 use App\Mail\Mailtrap;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
@@ -414,7 +416,7 @@ $ace = Cloudinary\Uploader::upload($book_content, array( "public_id" => "book_co
 
         Mail::send('email.contact', $data, function($message) use ($data){
             $message->from($data['email']);
-            $message->to('solomoreal@yahoo.com');
+            $message->to('ikeogu322@gmail.com');
             $message->subject($data['subject']);
         });
 
@@ -445,7 +447,7 @@ $ace = Cloudinary\Uploader::upload($book_content, array( "public_id" => "book_co
 
         Mail::send('email.complain', $data, function($message) use ($data){
             $message->from($data['email']);
-            $message->to('solomoreal@yahoo.com');
+            $message->to('ikeogu322@gmail.com');
             $message->subject($data['subject']);
         });
 

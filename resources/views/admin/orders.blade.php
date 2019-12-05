@@ -54,7 +54,7 @@
                         <td>{{$item->state}}</td>
                         
                         <td>{{$item->quantity}}</td>
-                        <td>{{$item->amount}}</td>
+                        <td>{{$item->amount/100}}</td>
                         <td>{{$item->status}}</td>
                         <td>{{date('d/M/Y h:i:s',strtotime($item->paid_at))}}</td>
                         <td>

@@ -24,7 +24,7 @@
                         </div><br />
                     @endif
                 </div>
-            <marquee behavior="" direction="left"><h6 class="article2"> Post article for publication</marquee>
+            <marquee behavior="" direction="left"><h6 class="article"> Check our store for amazing books & articles.<br> We add new titles daily. Ordering soft & hard copies online is easy!</marquee>
             <div class="banner">
               <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">

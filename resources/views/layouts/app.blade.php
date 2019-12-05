@@ -49,7 +49,7 @@
 		<header>
 			<div id="top-header">
 				<div class="branding">
-					<img src="{{asset('img/logo.png')}}" alt="logo" class="img-fluid" width="400">
+					<img src="{{secure_asset('img/logo.png')}}" alt="logo" class="img-fluid" width="400">
 				</div>
 				<div id="info">
 					<p><i class="icon ion-logo-whatsapp"></i> <i class="icon ion-md-call"></i></i> <span
@@ -119,7 +119,7 @@
 					<div class="row ">
 						<div class="col-md-4 m-0 ">
 							<div class="time-logo">
-								<img src="{{asset('img/logo.png')}}" alt="" class="img-fluid" width="300">
+								<img src="{{secure_asset('img/logo.png')}}" alt="" class="img-fluid" width="300">
 							</div>
 							<p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto id magnam fugit officia. Nam qui odit vero
 								quia pariatur enim dolore voluptatem quibusdam ducimus dignissimos ex ea, eveniet consectetur repellendus.
@@ -172,7 +172,7 @@
 		<script src="{{secure_asset('/js/jquery-3.4.1.min.js')}}"
 			 crossorigin="anonymous"></script>
 		<script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
-		<script type="text/javascript" src="{{asset('js/slick.min.js')}}"></script>
+		<script type="text/javascript" src="{{secure_asset('js/slick.min.js')}}"></script>
 		<script src="js/plugins.js"></script>
 		<script src="{{secure_asset('js/jquery-3.3.1.slim.min.js')}}"
 			></script>

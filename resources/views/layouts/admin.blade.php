@@ -133,11 +133,11 @@
             <!-- Nav Item - Tables -->
             
             <li class="nav-item">
-                    <a class="nav-link" href="{{route('viewCustomers')}}">
-                            <i class="fas fa-fw fa-chart-area"></i>
-                            <span>View Customers</span></a>
-                    </li>
-
+                <a class="nav-link" href="{{route('viewCustomers')}}">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>View Customers</span></a>
+            </li>
+            
             <li class="nav-item">
                 <a class="nav-link" href="{{route('contact.index')}}">
                 <i class="fas fa-fw fa-user"></i>
