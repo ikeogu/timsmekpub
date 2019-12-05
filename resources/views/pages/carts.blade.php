@@ -20,10 +20,16 @@
                         <div class="details pl-4">
                           <h4 class="book-title">{{$product['item']['title']}}</h4>
                           <h5 class="author mb-4">{{$product['item']['author']['name']}}</h5>
-                        <a href="{{route('removeItem',['id'=>$product['item']['id']])}}" class="btn btn-outline-danger">Remove</a>
-
-                        {{-- <a href="{{route('reduceByOne',['id' =>$id])}}" class="value-button" id="decrease" onclick="decreaseValue()"
-                            value="Decrease Value"><b>-</b></a> --}}
+                        <a href="{{route('removeItem',['id'=>$product['item']['id']])}}" class="btn btn-outline-danger">Remove</a> 
+                          
+                        <a href="{{route('reduceByOne',['id' =>$product['item']['id']])}}" class="value-button btn btn-warning btn-fill" id="decrease" onclick="decreaseValue()"
+                            value="Decrease Value"><b>Reduce</b></a>
+                            <form action="{{route('addToCart')}}" method="POST">
+                                {{ csrf_field() }}
+                            <button class="value-button" id="increase" type="submit" onclick="increaseValue()"
+                            value="Increase Value"><b>Increase</b></button>
+                            </form>
+                           
                       </div>
                     </div>
                 </div>

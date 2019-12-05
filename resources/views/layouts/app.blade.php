@@ -91,7 +91,7 @@
 					<li class="list"><a href="{{route('publish.index')}}">Store</a></li>
 					<li class="list"><a href="{{route('service.index')}}">Services</a></li>
 					<li class="list"><a href="{{route('blog.index')}}">Blog</a></li>
-					<li class="list"><a href="{{route('article.create')}}">Submit an Article</a></li>
+					<li class="list"><a href="{{route('article.create')}}">Submit <small class="sentence-case">an</small> Article</a></li>
 				<li  class="list"><a href="{{route('contact.create')}}"></i> Contact us</a></li>
 				<li class="list"><a href="{{route('getCart')}}"><i class="fa fa-shopping-cart"><sup class="badg">{{Session::has('cart') ? Session::get('cart')->totalQty : 0}}</sup></i></a></li>
 				@auth 
