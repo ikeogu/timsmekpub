@@ -12,14 +12,14 @@
         
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{-- <link rel="manifest" href="{{asset('manifest.json')}}"> --}}
+    {{-- <link rel="manifest" href="{{secure_asset('manifest.json')}}"> --}}
     <link rel="apple-touch-icon" href="icon.png">
-    <link rel="stylesheet" href="{{asset('css/normalize.css')}}">
-    <link rel="stylesheet"  href="{{asset('css/slick.css')}}" />
-    <link href="{{asset('css/ionicons.min.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/normalize.css')}}">
+    <link rel="stylesheet"  href="{{secure_asset('css/slick.css')}}" />
+    <link href="{{secure_asset('css/ionicons.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{secure_asset('css/bootstrap.min.css')}}">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{asset('css/main.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/main.css')}}">
     <meta name="theme-color" content="#fafafa">
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -168,19 +168,19 @@
 		
 	
 	
-		<script src="{{asset('js/vendor/modernizr-3.7.1.min.js')}}"></script>
-		<script src="{{asset('/js/jquery-3.4.1.min.js')}}"
+		<script src="{{secure_asset('js/vendor/modernizr-3.7.1.min.js')}}"></script>
+		<script src="{{secure_asset('/js/jquery-3.4.1.min.js')}}"
 			 crossorigin="anonymous"></script>
 		<script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
 		<script type="text/javascript" src="{{asset('js/slick.min.js')}}"></script>
 		<script src="js/plugins.js"></script>
-		<script src="{{asset('js/jquery-3.3.1.slim.min.js')}}"
+		<script src="{{secure_asset('js/jquery-3.3.1.slim.min.js')}}"
 			></script>
-		<script src="{{asset('js/popper.min.js')}}"
+		<script src="{{secure_asset('js/popper.min.js')}}"
 			></script>
-		<script src="{{asset('js/bootstrap.min.js')}}"
+		<script src="{{secure_asset('js/bootstrap.min.js')}}"
 			></script>
-		<script src="{{asset('js/main.js')}}"></script>
+		<script src="{{secure_asset('js/main.js')}}"></script>
 	
 		<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 		<script>

@@ -2,7 +2,9 @@
 
 @section('content')
 <div class="container mt-5">
-    <marquee behavior="" direction="left"><h6 class="article">Join our authors, submit your works to Timsmek Global Publishers.</h6></marquee>
+    <marquee behavior="" direction="left">
+		  <h6 class="article">Join our authors, submit your works to Timsmek Global Publishers.</h6>
+		</marquee>
     <div class="row">
       <div class="col-md-6 m-auto">
         <h5>Join our community of authors and readers. Sign up below.<br> It is easy and free.</h5>

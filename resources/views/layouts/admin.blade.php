@@ -19,7 +19,7 @@
     rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
+  <link href="{{secure_asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
 
 </head>
 
@@ -394,8 +394,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-    <script src="{{asset('js/main.js')}}"></script>
-    <script src="{{asset('js/slider.js')}}"></script>
+    <script src="{{secure_asset('js/main.js')}}"></script>
+    <script src="{{secure_asset('js/slider.js')}}"></script>
 
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
     <script>
