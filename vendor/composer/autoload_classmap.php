@@ -57,6 +57,7 @@ return array(
     'App\\Purchase' => $baseDir . '/app/Purchase.php',
     'App\\Search' => $baseDir . '/app/Search.php',
     'App\\Service' => $baseDir . '/app/Service.php',
+    'App\\ShipFee' => $baseDir . '/app/ShipFee.php',
     'App\\User' => $baseDir . '/app/User.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonImmutable' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonImmutable.php',

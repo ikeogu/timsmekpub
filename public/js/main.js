@@ -23,21 +23,10 @@ function rotateCard(btn) {
   }
 }
 
-let toggle = document.querySelector('#toggler');
-let showTranslate = document.querySelector('.showTranslate');
-let sideNav = document.querySelector('.small-side');
-let closeMenu = document.querySelector('.closeMenu');
+let harmbugger = document.querySelector('.toggle');
+let navLinks = document.querySelector('.small-side');
+let navList = document.querySelector('.navbar-default li');
 
-toggle.addEventListener('click', onClick);
-
-showTranslate = false;
-
-function onClick(e){
- if(!showTranslate){
-    sideNav.classList.add('closeMenu');
-    showTranslate = true;
- } else {
-  sideNav.classList.remove('closeMenu');
-  showTranslate = false;
- }
-}
+harmbugger.addEventListener('click', function(){
+    navLinks.classList.toggle('open');
+});

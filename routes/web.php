@@ -38,6 +38,7 @@ Route::resource('editors', 'EditorController');
 Route::resource('service', 'ServiceController');
 Route::any('search','SearchController@search')->name('search');
 Route::resource('category', 'CategoryController');
+Route::resource('shippingFee', 'ShipFeeController');
 
 //download article
 Route::get('/downloadPDF/{id}','PublishController@downloadPDF')->name('download');

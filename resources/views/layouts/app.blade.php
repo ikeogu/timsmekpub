@@ -78,12 +78,12 @@
 				</div>
 			</div>
 			<nav >
-				<div id="toggler" class="small">
+				<div id="toggler" class="toggle">
 					<div></div>
 					<div></div>
 					<div></div>
 				</div>
-				<ul class="small-side" class="navbar-default">
+				<ul class="small-side">
 					<li class="list"><a href="/" class="active">Home</a></li>
 					<li class="list"><a href="/about">About us</a>
 					</li>
@@ -105,6 +105,7 @@
 				@endauth	
 				</ul>
 				<ul class="small-ul">
+						<li class="small"><a href="{{route('getCart')}}"><i class="text-white fa fa-shopping-cart"><sup class="badg">{{Session::has('cart') ? Session::get('cart')->totalQty : 0}}</sup></i></a></li>
 					<li class="small"><a href="/register">Sign up</a></li>
 					<li class="small"><a href="/login">Login</a></li>
 				</ul>

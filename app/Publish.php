@@ -19,4 +19,8 @@ class Publish extends Model
     public function purchase(){
         return $this->hasOne(Purchase::class);
     }
+    public function shipfee()
+    {
+        return $this->hasMany('App\ShipFee');
+    }
 }

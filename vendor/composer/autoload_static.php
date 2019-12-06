@@ -506,6 +506,7 @@ class ComposerStaticInit689446ac072fddf7d881ce603e278851
         'App\\Purchase' => __DIR__ . '/../..' . '/app/Purchase.php',
         'App\\Search' => __DIR__ . '/../..' . '/app/Search.php',
         'App\\Service' => __DIR__ . '/../..' . '/app/Service.php',
+        'App\\ShipFee' => __DIR__ . '/../..' . '/app/ShipFee.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonImmutable' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonImmutable.php',

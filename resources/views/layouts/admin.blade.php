@@ -131,7 +131,11 @@
                     <span>Hardcopy Orders</span></a>
             </li>
             <!-- Nav Item - Tables -->
-            
+            <li class="nav-item">
+                    <a class="nav-link" href="{{route('shippingFee.index')}}">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Add Shipping Fee</span></a>
+                </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{route('viewCustomers')}}">
                     <i class="fas fa-fw fa-chart-area"></i>

@@ -45,17 +45,17 @@
         </div>
     
     <h4>Shipping Address</h4>
-    <div class="card p-5">
+    <div class="card p-3">
       <form action="{{route('payH')}}" method="POST" accept-charset="UTF-8">
           {{ csrf_field() }}
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="">First name</label>
-          <input type="text" class="form-control" value="{{$user->first_name}}"placeholder="First name" name="first_name" required>
+             <input type="text" class="form-control" value="{{$user->first_name}}"placeholder="First name" name="first_name" required>
           </div>
           <div class="form-group col-md-6">
             <label for="">Last name</label>
-          <input type="text" class="form-control" value="{{$user->last_name}}"placeholder="last name" name="last_name" required>
+            <input type="text" class="form-control" value="{{$user->last_name}}"placeholder="last name" name="last_name" required>
           </div>
         </div>
         <div class="form-group">
@@ -135,7 +135,9 @@
             <div class="form-group">
             
             <button type="submit" class="btn btn-outline-danger">Place Order</button>
+            </div>
       </form>
     </div>
   </div>
+  <br><br><br><br><br>
 @endsection
