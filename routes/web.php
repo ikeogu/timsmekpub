@@ -88,6 +88,7 @@ Route::post('/send', 'EmailController@send');
  //Cart
  Route::post('addToCart', 'PublishController@addToCart')->name('addToCart');
  Route::get('getCart', 'PublishController@getCart')->name('getCart');
+ Route::get('addItemByOne/{id}', 'PublishController@addItemByOne')->name('addItemByOne');
  Route::get('reduceByOne/{id}', 'PublishController@reduceItemByOne')->name('reduceByOne');
  Route::get('removeItem/{id}', 'PublishController@removeItem')->name('removeItem');
  Route::get('emptyCart', 'PublishController@emptyCart')->name('emptyCart');

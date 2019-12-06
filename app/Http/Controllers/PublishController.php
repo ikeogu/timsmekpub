@@ -265,6 +265,14 @@ $ace = Cloudinary\Uploader::upload($book_content, array( "public_id" => "book_co
         return back();
         
     }
+    public function addItemByOne($id){
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->addByOne($id);
+        Session::put('cart', $cart);
+        return back();
+        
+    }
 
     public function removeItem($id){
         $oldCart = Session::has('cart') ? Session::get('cart') : null;

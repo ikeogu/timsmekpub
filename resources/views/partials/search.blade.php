@@ -17,13 +17,27 @@
                         
                         <div class="about-author my-5 d-flex bg-light p-5">
                             <div class="decs">
+                                
                                 @if(count($details) > 0)
                                     @foreach($details as $item)
-                                    <p>{{$item->name ?? ''}}</p>
-                                    <p>{{$item->title ?? ''}}</p>
-                                    <p>{{$item->description ?? '' }}</p>
-                                    <p>{{$item->biography ?? '' }}</p>
-                                    <hr>
+
+                                        
+                                            <a href="{{route('art_cat',['id'=>$item->id])}}">
+                                            <p>{{$item->name ?? ''}}</p>
+                                            </a>
+                                        
+                                        
+                                            <a href="publish/{{$item->id}}">
+                                                    <p>{{$item->title ?? ''}}</p>
+                                                    <p>{{$item->description ?? '' }}</p>
+                                            </a>
+                                       
+                                        
+                                            <a href="{{route('authors.show',['id'=> $item->id])}}">
+                                                <p>{{$item->biography ?? '' }}</p>
+                                            </a>
+                                            
+                                        <hr>
                                     @endforeach
                                 @else
                                  <h6 class="text-warning">No result found Check Spelling.</h6>

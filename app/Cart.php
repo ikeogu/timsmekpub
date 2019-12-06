@@ -59,6 +59,25 @@ class Cart
 
         }
     }
+    public function addByOne($id){
+        $this->items[$id]['qty']++;
+        
+       $this->items[$id]['price'] += $this->items[$id]['item']['price']/100;
+       if($this->totalQty <= 0){
+        $this->totalQty = 0;
+       }else{
+           $this->totalQty++;
+       }
+       if($this->totalPrice <= 0){
+           $this->totalPrice = 0;
+       }else{
+        $this->totalPrice += $this->items[$id]['item']['price']/100;
+       }
+        if($this->items[$id]['qty'] <= 0){
+            unset($this->items[$id]);
+
+        }
+    }
 
     public function removeItem($id){
         if(array_key_exists($id, $this->items)){

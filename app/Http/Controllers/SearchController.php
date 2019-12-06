@@ -14,7 +14,7 @@ class SearchController extends Controller
    
 
     
-    public function search(Request $request) {
+    public function search(Request $request) { 
         $text = $request->search;
 
         $book = DB::table('publishes') ->where('title', 'like', '%'.$text.'%')->orWhere('description','like','%'.$text.'%')->get();
