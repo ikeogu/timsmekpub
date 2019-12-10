@@ -56,28 +56,28 @@ class AuthorController extends Controller
 
         ]);
 
-        // if($request->hasFile('photo')){
-        //     //get file name with extension
-        //     $fileNameWithExt = $request->file('photo')->getClientOriginalName();
-        //     //get just file name
-        //     $filenames = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
-        //     //get just extension
-        //     $extension = $request->file('photo')->getClientOriginalExtension();
-        //     //file name to store
-        //     $fileNameToStore = $filenames.'_'.time().'.'.$extension;
-        //     //upload image
-        //     $path = $request->file('photo')->storeAs('public/authors/', $fileNameToStore);
-        // }else{
-        //     $fileNameToStore = 'noimage.jpg';
-        // }
-
         if($request->hasFile('photo')){
-            $image = $request->file('photo')->getRealPath();
-
-            Cloudder::upload($image, null);
-
-            $image_url = Cloudder::show(Cloudder::getPublicId());
+            //get file name with extension
+            $fileNameWithExt = $request->file('photo')->getClientOriginalName();
+            //get just file name
+            $filenames = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+            //get just extension
+            $extension = $request->file('photo')->getClientOriginalExtension();
+            //file name to store
+            $fileNameToStore = $filenames.'_'.time().'.'.$extension;
+            //upload image
+            $path = $request->file('photo')->storeAs('public/authors/', $fileNameToStore);
+        }else{
+            $fileNameToStore = 'noimage.jpg';
         }
+
+        // if($request->hasFile('photo')){
+        //     $image = $request->file('photo')->getRealPath();
+
+        //     Cloudder::upload($image, null);
+
+        //     $image_url = Cloudder::show(Cloudder::getPublicId());
+        // }
 
         $author = new Author();
         $author->name = $request->name;
@@ -85,7 +85,7 @@ class AuthorController extends Controller
         $author->pob = $request->pob;
         $author->sex = $request->sex;
         $author->email = $request->email;
-        $author->photo = $image_url;//$fileNameToStore;
+        $author->photo = $fileNameToStore;
         $author->book_authored = $request->book_authored;
         $author->biography = $request->biography;
         $author->education = $request->education;

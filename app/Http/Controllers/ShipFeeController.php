@@ -103,4 +103,8 @@ class ShipFeeController extends Controller
         $fee->delete();
         return back()->with('success','shipping Fee Deleted!');
     }
+
+    public function displayShipFee(){
+       
+    }
 }

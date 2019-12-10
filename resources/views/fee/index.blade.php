@@ -77,7 +77,7 @@
                         <td>{{$item->fee}}</td>
                         <td>{{$item->created_at->diffForHumans()}}</td>
                         <td class="d-flex justify-content-between flex-wrap">
-                        <a href="/shippingFee/{{$item->id}}/edit" class="btn btn-danger btn-user btn-block">Edit</a>
+                        <a href="/shippingFee/{{$item->id}}/edit" class="btn btn-warning btn-user btn-block">Edit</a>
 
                             <form action="{{ route('shippingFee.destroy' , [$item->id])}}" method="POST">
                                 <input name="_method" type="hidden" value="DELETE">

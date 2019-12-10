@@ -49,31 +49,31 @@ class BlogController extends Controller
             'writter'=> 'required',
             'image'=>'required'
         ]);
-        // if($request->hasFile('image')){
-        //     //get file name with extension
-        //     $fileNameWithExt = $request->file('image')->getClientOriginalName();
-        //     //get just file name
-        //     $filenames = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
-        //     //get just extension
-        //     $extension = $request->file('image')->getClientOriginalExtension();
-        //     //file name to store
-        //     $fileNameToStore = $filenames.'_'.time().'.'.$extension;
-        //     //upload image
-        //     $path = $request->file('image')->storeAs('public/blog_post/', $fileNameToStore);
-        // }else{
-        //     $fileNameToStore = 'noimage.jpg';
-        // }
-
         if($request->hasFile('image')){
-            $image = $request->file('image')->getRealPath();
-
-            Cloudder::upload($image, null);
-
-            $image_url = Cloudder::show(Cloudder::getPublicId());
+            //get file name with extension
+            $fileNameWithExt = $request->file('image')->getClientOriginalName();
+            //get just file name
+            $filenames = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+            //get just extension
+            $extension = $request->file('image')->getClientOriginalExtension();
+            //file name to store
+            $fileNameToStore = $filenames.'_'.time().'.'.$extension;
+            //upload image
+            $path = $request->file('image')->storeAs('public/blog_post/', $fileNameToStore);
+        }else{
+            $fileNameToStore = 'noimage.jpg';
         }
 
+        // if($request->hasFile('image')){
+        //     $image = $request->file('image')->getRealPath();
+
+        //     Cloudder::upload($image, null);
+
+        //     $image_url = Cloudder::show(Cloudder::getPublicId());
+        // }
+
         $blog = new Blog();
-        $blog->image = $image_url;//$fileNameToStore;
+        $blog->image = $fileNameToStore;
         $blog->caption = $request->caption;
         $blog->body = $request->body;
         $blog->writter = $request->writter;

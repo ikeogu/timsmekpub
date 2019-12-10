@@ -18,7 +18,8 @@ class UsersTableSeeder extends Seeder
             'isAdmin' => 1,
             'phone'=> '07034559895',
             'newslater'=>1,
-            'agree'=> 1
+            'agree'=> 1,
+            'role' =>'Admin',
 
         ]);
         

@@ -8,11 +8,13 @@
               @if (count($recent ) > 0)
                  @foreach ($recent  as $item)
                   <div class="card-inner">
+                    <a href="/publish/{{$item->id}}">
                     <p><i class="icon ion-md-journal mr-2"></i>{{$item->title}}</p>
                     <ul>
                       <li>by: <span>{{$item->author->name}}</span></li>
                       <li>Date: <span>{{$item->created_at->diffForHumans()}}</span></li>
                     </ul>
+                    </a>
                   </div>
                  @endforeach 
               @else

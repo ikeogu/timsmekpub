@@ -16,7 +16,7 @@
                         <div class="col-md-4">
                             <a href="/blog/{{$item->id}}" class="blog-card mt-5">
                               <div class="card-img">
-                              <img src="{{$item->image}}" alt="" class="img-fluid">
+                              <img src="storage/blog_post/{{$item->image}}" alt="" class="img-fluid">
                               </div>
                               <div class="blog-title">
                                 <h3 class="heading">{{$item->caption}}</h3>

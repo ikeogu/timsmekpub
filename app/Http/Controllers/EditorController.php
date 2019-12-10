@@ -62,18 +62,18 @@ class EditorController extends Controller
     // }else{
     //     $fileNameToStore = 'noimage.jpg';
     // }
-    if($request->hasFile('photo')){
-        $image = $request->file('photo')->getRealPath();
+    // if($request->hasFile('photo')){
+    //     $image = $request->file('photo')->getRealPath();
 
-        Cloudder::upload($image, null);
+    //     Cloudder::upload($image, null);
 
-        $image_url = Cloudder::show(Cloudder::getPublicId());
-    }
+    //     $image_url = Cloudder::show(Cloudder::getPublicId());
+    // }
        $editor = new Editor();
        $editor->name = $request->name;
        $editor->email = $request->email;
        $editor->bio = $request->bio;
-       $editor->photo  = $image_url;//$fileNameToStore;
+       $editor->photo  = $fileNameToStore;
        if($editor->save()){
         return redirect(route('editors.index'))->with('success','Editor added');
 

@@ -46,32 +46,32 @@ class ServiceController extends Controller
             'name'=> 'required',
             'description' => 'required'
         ]);
-        // if($request->hasFile('image')){
-        //     //get file name with extension
-        //     $fileNameWithExt = $request->file('image')->getClientOriginalName();
-        //     //get just file name
-        //     $filenames = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
-        //     //get just extension
-        //     $extension = $request->file('image')->getClientOriginalExtension();
-        //     //file name to store
-        //     $fileNameToStore = $filenames.'_'.time().'.'.$extension;
-        //     //upload image
-        //     $path = $request->file('image')->storeAs('public/services/', $fileNameToStore);
-        // }else{
-        //     $fileNameToStore = 'noimage.jpg';
-        // }
         if($request->hasFile('image')){
-            $image = $request->file('image')->getRealPath();
-
-            Cloudder::upload($image, null);
-
-            $image_url = Cloudder::show(Cloudder::getPublicId());
+            //get file name with extension
+            $fileNameWithExt = $request->file('image')->getClientOriginalName();
+            //get just file name
+            $filenames = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+            //get just extension
+            $extension = $request->file('image')->getClientOriginalExtension();
+            //file name to store
+            $fileNameToStore = $filenames.'_'.time().'.'.$extension;
+            //upload image
+            $path = $request->file('image')->storeAs('public/service/', $fileNameToStore);
+        }else{
+            $fileNameToStore = 'noimage.jpg';
         }
+        // if($request->hasFile('image')){
+        //     $image = $request->file('image')->getRealPath();
+
+        //     Cloudder::upload($image, null);
+
+        //     $image_url = Cloudder::show(Cloudder::getPublicId());
+        // }
 
         $service = new Service();
         $service->name = $request->name;
         $service->description = $request->description;
-        $service->image = $image_url;// $fileNameToStore;
+        $service->image =  $fileNameToStore;
 
         if($service->save()){
             return redirect(route('service.create'))->with('success','Service Added');

@@ -10,14 +10,14 @@
             </div>
             <div class="blog-body">
               <p class="blog-content mb-3">{{str_limit($blog->body, $limit = 50, $end = '..')}}</p>
-              <img src="{{$blog->image}}" alt="{{$blog->caption}}"  height="370" width="auto">
+              <img src="storage/blog_post/{{$blog->image}}" alt="{{$blog->caption}}"  height="370" width="auto">
               <p class="blog-content mt-5">{!!nl2br($blog->body)!!}</p>
 
               
             </div>
             <div class="about-author my-5 d-flex bg-light p-5">
               <div class="author-img mr-5">
-                <img src="{{$blog->image}}" alt="" class="img-fluid" width="200">
+                <img src="storage/blog_post/{{$blog->image}}" alt="" class="img-fluid" width="200">
               </div>
               <div class="decs">
                 <h4>{{$blog->writter}}</h4>

@@ -62,17 +62,17 @@
                             <div class="card">
                                 <div class="front mb-5">
                                     <div class="product">
-                                    <img class="img-circle" src="{{$item->cover_page}}" />
+                                        <a href="/publish/{{$item->id}}"> <img class="img-circle" src="{{$item->cover_page}}" /></a>
                                     </div>
                                     <div class="content text-center">
-                                    <h6 class="f-w-600 m-b-10">{{$item->title}}</h6>
+                                    <a href="/publish/{{$item->id}}"> <h6 class="f-w-600 m-b-10">{{$item->title}}</h6></a>
                                     <hr>
                                     @if($item->available == 1)
-                                        <p class="f-w-600 m-b-10">only Soft copy</p>
+                                        <p class="f-w-600 m-b-10"> Soft copy</p>
                                         @elseif($item->available == 2)
-                                            <p class="f-w-600 m-b-10">only Hard copy</p> 
+                                            <p class="f-w-600 m-b-10"> Hard copy</p> 
                                     @elseif($item->available == 3)
-                                        <p class="f-w-600 m-b-10">available both Hard and soft copy</p> 
+                                        <p class="f-w-600 m-b-10">Hard and soft copy</p> 
                                     @endif 
                                     <p class="price">{{date('d/M/Y ',strtotime($item->year_pub))}}</p>
                                     @if($item->status === 1 && $item->available == 1)
@@ -153,7 +153,7 @@
             @else    
           
               
-              <div class="col-md-3 col-lg-3">
+                <div class="col-md-3 col-lg-3">
                   <div class="card-container manual-flip">
                       <div class="card">
                           <div class="front mb-5">
@@ -245,6 +245,56 @@
 
           </div>
         </section>
+        {{-- for reviez --}}
+        <br><br><br><br><br><br><br>
+        <hr>
+        <section id="recent-blog-post">
+          <div class="header text-center">
+            <h2>Peoples Review on our Books</h2>
+            <p>Read interesting topics from Timsmek Global Publishers.</p>
+          </div>
+          <div class="container">
+              <div class="row">
+                  @if($blog->count() > 0)
+                      @foreach ($review  as $item)
+                          <div class="col-md-4">
+                              <a href="/review/{{$item->id}}" class="blog-card mt-5">
+                                <div class="card-img">
+                                {{-- <img src="/storage/blog_post/{{$item->image}}" alt="" class="img-fluid"> --}}
+                                </div>
+                                <div class="blog-title">
+                                  <h3 class="heading"> rated :
+                                    @if($item->ratings === 5 )
+                                  <i class="icon ion-md-star"></i><i class="icon ion-md-star"></i><i class="icon ion-md-star"></i><i class="icon ion-md-star"></i><i class="icon ion-md-star"></i>
+                                @elseif($item->ratings ===4)
+                                <i class="icon ion-md-star"></i><i class="icon ion-md-star"></i><i class="icon ion-md-star"></i><i class="icon ion-md-star"></i>
+                                @elseif($item->ratings === 3)
+                                <i class="icon ion-md-star"></i><i class="icon ion-md-star"></i><i class="icon ion-md-star"></i>
+                                @elseif($item->ratings === 2)
+                                <i class="icon ion-md-star"></i><i class="icon ion-md-star"></i>
+                                @elseif($item->ratings=== 1)
+                                <i class="icon ion-md-star"></i>
+                                @endif
+                                </h3>
+                                  <date>{{$item->created_at->diffForHumans()}} {{$item->writter}}<i class="icon ion-md-chatbubbles"></i> </date>
+                                  <p>{{str_limit($item->comment, $limit = 30, $end = '...') }}</p>
+                                </div>
+                              </a>
+                            </div>
+                      @endforeach
+                      
+                  @else
+                      <div class="col-md-8">
+                        <h3>We Don't Recent Review from our buyers.</h3>
+                      </div>
+                  @endif
+              </div>
+          </div>
+          {{$review->links()}}
+        </section>
+      
+
+    {{-- for blog --}}
         <br><br><br><br><br><br><br>
         <hr>
         <section id="recent-blog-post">
@@ -264,12 +314,12 @@
                                 <div class="blog-title">
                                   <h3 class="heading">{{$item->caption}}</h3>
                                   <date>{{$item->created_at->diffForHumans()}} {{$item->writter}}<i class="icon ion-md-chatbubbles"></i> </date>
-                                  <p>{{str_limit($item->body, $limit = 30, $end = '...') }}</p>
+                                  <p>{{str_limit($item->body, $limit = 70, $end = '...') }}</p>
                                 </div>
                               </a>
                             </div>
                       @endforeach
-                      {{$blog->links()}}
+                      
                   @else
                       <div class="col-md-8">
                         <h3>We Don't have recent Post on Our Blog.</h3>
@@ -277,6 +327,7 @@
                   @endif
               </div>
           </div>
+          {{$blog->links()}}
         </section>
       </div>
       @include('partials/sidebar2')

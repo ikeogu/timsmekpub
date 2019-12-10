@@ -5,7 +5,7 @@
           <div class="row">
             <div class="col-md-6">
               <div class="author-img m-auto">
-              <img src="{{$author->photo}}" alt="{{$author->photo}}" class="img-fluid">
+              <img src="storage/authors{{$author->photo}}" alt="{{$author->photo}}" class="img-fluid">
               </div>
               <div class="row justify-content-center user-social-link">
                 <div class="col-auto"><a href="{{$author->instagram}}"><i class="fa fa-facebook text-facebook"></i></a></div>

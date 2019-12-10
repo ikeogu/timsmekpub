@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Blog;
 use App\Publish;
 use Auth;
+use App\Review;
 
 class HomeController extends Controller
 {
@@ -35,6 +36,7 @@ class HomeController extends Controller
         $blog = Blog::paginate(3);
         $book = Publish::paginate(10);
         $recent = Publish::latest()->take(8)->get();
+
         return view('pages/index',['recent'=>$recent,'blog'=>$blog, 'book'=>$book,]); 
     }
     public function first(){
@@ -42,7 +44,8 @@ class HomeController extends Controller
         $book = Publish::paginate(10);
         $recent = Publish::latest()->take(8)->get();
         // dd($recent);
-        return view('pages/index',['blog'=>$blog, 'book'=>$book,'recent'=>$recent]);
+        $review = Review::paginate(5);
+        return view('pages/index',['blog'=>$blog, 'book'=>$book,'recent'=>$recent, 'review'=>$review]);
 
     }
 

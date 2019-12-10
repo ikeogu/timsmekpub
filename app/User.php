@@ -49,4 +49,10 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\ShipFee');
     }
+    public function review(){
+        return $this->hasMany('App\Review');
+    }
+   public function order(){
+       return $this->hasMany('App\Order');
+   }
 }

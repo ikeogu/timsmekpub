@@ -47,24 +47,30 @@
                 </div>
             
 
-                {{-- <div class="col-3">
+                <div class="col-3">
                   <h5 class="item-title">Unit Price</h5>
                   <div class="price-container mt-5">
                     <h4 class="item-prices text-success">{{$currency.''.number_format($product['item']['price']/100,2)}}</h4>
                   </div>
-                </div>  --}}
+                </div> 
               </div>
             @endforeach  
-            {{-- <div class="total d-flex mt-5 pl-2">
-                <h4 class="mr-4"><b>Total</b></h4>
+            <div class="total d-flex mt-5 pl-2">
+                <h4 class="mr-4"><b>Total </b></h4>
                 <h4 class="text-danger"><b>{{$currency.''.number_format($totalPrice,2)}}</b></h4>
-                <p class="muted">shipping fee not included yet</p>
-            </div> --}}
-          @endif
-          
+                
+            </div>
+        
+          <strong class="muted"> shipping fee : Not added yet!</strong>
+          <div class="total d-flex mt-5 pl-2">
+              {{-- <h4 class="mr-4"><b>Grand Total</b></h4>
+              <h4 class="text-danger"><b>{{$currency.''.number_format($gTotal,2)}}</b></h4>
+               --}}
+          </div>
         </div>
       </div>
-      
+      @endif
+      <p class="muted"> Your Cart is Empty!</p>
     </section>
 
 
@@ -80,9 +86,10 @@
                   <a class="btn btn-outline-danger btn-fill my-2" href="{{route('emptyCart')}}">EMPTY CART</a>
                 </div>
               <div class="col-md-4">
-                @if(session()->has('cart'))
-                
+                @if(session()->has('cart') && (Auth::user()->city != null) )
                 <a class="btn btn-outline-primary btn-fill" href="{{route('checkout')}}">PROCEED CHECKOUT</a>
+                @elseif(session()->has('cart'))
+                <a class="btn btn-outline-primary btn-fill" href="{{route('checkouts')}}">PROCEED CHECKOUT</a>
                 @elseif(session()->has('cart') < 1)
                 <a class="btn btn-outline-primary btn-fill" style="display:block;">PROCEED CHECKOUT</a>
                 @endif

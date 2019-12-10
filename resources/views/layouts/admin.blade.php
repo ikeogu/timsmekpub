@@ -13,13 +13,13 @@
   <title>Timsmek Admin Dashboard</title>
 
   <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="{{asset('css/fontawesome.min.css')}}" rel="stylesheet" type="text/css">
   <link
     href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
     rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="{{secure_asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
+  <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
 
 </head>
 
@@ -34,7 +34,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('/adminI')}}">
                 <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
+                <i class="fa fa-laugh-wink"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">Timsmek Admin</div>
             </a>
@@ -46,12 +46,12 @@
         @if( Auth::user()->isAdmin === 1 || Auth::user()->isAdmin === 2)
             <li class="nav-item active">
                 <a class="nav-link" href="{{url('/adminI')}}">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <i class="fa fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{{url('/')}}">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <i class="fa fa-fw fa-tachometer-alt"></i>
                 <span>Home Page</span></a>
             </li>
 
@@ -66,7 +66,7 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item active">
             <a class="nav-link" href="{{route('admindashboard')}}">
-                <i class="fas fa-fw fa-chart-area"></i>
+                <i class="fa fa-fw fa-chart-area"></i>
                 <span>Add Categories</span></a>
             </li>
             
@@ -74,41 +74,41 @@
             <!-- Nav Item - Tables -->
             <li class="nav-item">
             <a class="nav-link" href="{{route('authors.create')}}">
-                <i class="fas fa-fw fa-user"></i>
+                <i class="fa fa-fw fa-user"></i>
                 <span>Add Author</span></a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="{{route('allauth')}}">
-                <i class="fas fa-fw fa-user"></i>
+                <i class="fa fa-fw fa-user"></i>
                 <span>All Authors</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="{{route('editors.index')}}">
-                <i class="fas fa-fw fa-user"></i>
+                <i class="fa fa-fw fa-user"></i>
                 <span> Editors</span></a>
             </li>
              
 
             <li class="nav-item">
             <a class="nav-link" href="{{route('article.index')}}">
-                <i class="fas fa-fw fa-user"></i>
+                <i class="fa fa-fw fa-user"></i>
                 <span>Articles to be Published</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="{{route('books')}}">
-                <i class="fas fa-fw fa-address-card"></i>
+                <i class="fa fa-fw fa-address-card"></i>
                 <span>Published Books</span></a>
             </li>
             <li class="nav-item">
                     <a class="nav-link" href="{{route('publish.create')}}">
-                    <i class="fas fa-fw fa-address-card"></i>
+                    <i class="fa fa-fw fa-address-card"></i>
                     <span>Publish a  Book</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{route('blogs')}}">
-                <i class="fas fa-fw fa-user"></i>
+                <i class="fa fa-fw fa-user"></i>
                 <span>Blog Posts</span></a>
             </li>
 
@@ -116,49 +116,49 @@
         @if(Auth::user()->isAdmin === 1)
             <li class="nav-item active">
                  <a class="nav-link" href="{{route('service.create')}}">
-                <i class="fas fa-fw fa-chart-area"></i>
+                <i class="fa fa-fw fa-chart-area"></i>
                 <span>Add Service</span>
               </a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="{{route('stransactions')}}">
-                <i class="fas fa-fw fa-chart-area"></i>
+                <i class="fa fa-fw fa-chart-area"></i>
                 <span>Softcopy Payments</span></a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="{{route('allOrders')}}">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="fa fa-fw fa-chart-area"></i>
                     <span>Hardcopy Orders</span></a>
             </li>
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                     <a class="nav-link" href="{{route('shippingFee.index')}}">
-                    <i class="fas fa-fw fa-user"></i>
+                    <i class="fa fa-fw fa-user"></i>
                     <span>Add Shipping Fee</span></a>
                 </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{route('viewCustomers')}}">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="fa fa-fw fa-chart-area"></i>
                     <span>View Customers</span></a>
             </li>
             
             <li class="nav-item">
                 <a class="nav-link" href="{{route('contact.index')}}">
-                <i class="fas fa-fw fa-user"></i>
+                <i class="fa fa-fw fa-user"></i>
                 <span>All Contacts</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="{{route('users')}}">
-                <i class="fas fa-fw fa-table"></i>
+                <i class="fa fa-fw fa-user"></i>
                 <span>All Users</span></a>
             </li>
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                <button class="rounded-circle border-0" id="sidebarToggle"> <i class="fa fa-bars"></i></button>
             </div>
             @endif
         </ul>
@@ -179,17 +179,17 @@
                 </button>
 
                 <!-- Topbar Search -->
-                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                {{-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                 <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
                     aria-label="Search" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                     <button class="btn btn-danger" type="button">
-                        <i class="fas fa-search fa-sm"></i>
+                        <i class="fa fa-search fa-sm"></i>
                     </button>
                     </div>
                 </div>
-                </form>
+                </form> --}}
 
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
@@ -198,22 +198,22 @@
                 <li class="nav-item dropdown no-arrow d-sm-none">
                     <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-search fa-fw"></i>
+                    <i class="fa fa-search fa-fw"></i>
                     </a>
                     <!-- Dropdown - Messages -->
                     <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                     aria-labelledby="searchDropdown">
-                    <form class="form-inline mr-auto w-100 navbar-search">
+                    {{-- <form class="form-inline mr-auto w-100 navbar-search">
                         <div class="input-group">
                         <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
                             aria-label="Search" aria-describedby="basic-addon2">
                         <div class="input-group-append">
                             <button class="btn btn-danger" type="button">
-                            <i class="fas fa-search fa-sm"></i>
+                            <i class="fa fa-search fa-sm"></i>
                             </button>
                         </div>
                         </div>
-                    </form>
+                    </form> --}}
                     </div>
                 </li>
 
@@ -231,21 +231,21 @@
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                     {{-- <a class="dropdown-item" href="#">
-                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                        <i class="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                         Profile
                     </a>
                     <a class="dropdown-item" href="#">
-                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                        <i class="fa fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                         Settings
                     </a>
                     <a class="dropdown-item" href="#">
-                        <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                        <i class="fa fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                         Activity Log
                     </a> --}}
                     
                     <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="" data-toggle="modal" data-target="#logoutModal">
-                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                        <i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                         Logout
                     </a>
                     </div>
@@ -263,7 +263,7 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
                 <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"><i
-                    class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                    class="fa fa-download fa-sm text-white-50"></i> Generate Report</a>
             </div>
 
             <!-- Content Row -->
@@ -282,7 +282,7 @@
                         <div class="h4 mb-0 font-weight-bold text-gray-800">{{App\User::count()}}</div>
                         </div>
                         <div class="col-auto">
-                        <i class="fas fa-donate fa-2x text-gray-300"></i>
+                        <i class="fa fa-donate fa-2x text-gray-300"></i>
                         </div>
                     </div>
                     </div>
@@ -308,7 +308,7 @@
                         </div>
                         </div>
                         <div class="col-auto">
-                        <i class="fas fa-book fa-2x text-gray-300"></i>
+                        <i class="fa fa-book fa-2x text-gray-300"></i>
                         </div>
                     </div>
                     </div>
@@ -326,7 +326,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{App\Article::count()}}</div>
                         </div>
                         <div class="col-auto">
-                        <i class="fas fa-comments fa-2x text-gray-300"></i>
+                        <i class="fa fa-comments fa-2x text-gray-300"></i>
                         </div>
                     </div>
                     </div>
@@ -356,7 +356,7 @@
         <!-- End of Content Wrapper -->
         <!-- Scroll to Top Button -->
         <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
+            <i class="fa fa-angle-up"></i>
         </a>
         <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -398,8 +398,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-    <script src="{{secure_asset('js/main.js')}}"></script>
-    <script src="{{secure_asset('js/slider.js')}}"></script>
+    <script src="{{asset('js/main.js')}}"></script>
+    <script src="{{asset('js/slider.js')}}"></script>
+    <script src="{{asset('js/slick.min.js')}}"></script>
+    <script src="{{asset('js/sb-admin-2.js')}}"></script>
 
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
     <script>

@@ -60,7 +60,7 @@
                                     </div><br />
                                   @endif
                         <div class="profile-header">
-                            <h2>My Orders</h2>
+                            <h4>My Orders</h4>
                         </div>
                         <div class="table-responsive">
                             <table class="table">
@@ -87,6 +87,7 @@
 
                                     <td>{{$order->status}}</td>
                                     <td><a href="{{route('orderDetails',['id' => $order->id])}}" class="btn btn-sm btn-danger text-white">View details</a></td>
+                                    
                                     </tr>
                                 
                                     @endforeach
@@ -97,12 +98,12 @@
                            </div>
                     </div>
                 </div>
-                <br><br>
+                
                 @if(count($orders) > 0)
-                <div class="row justify-content-center">
+                <div class="row justify-content-center p-5 form-card mt-5">
                         <div class="featured-product">
                             <div class="featured-title container">
-                                <h4>Buyers who bought this item also bought:</h4>
+                                <h6>Buyers who bought this item also bought:</h6>
                                 <hr>
                             </div>
                             <div class="container">
@@ -110,12 +111,12 @@
                                  @foreach($relatedProducts->chunk(4) as $relatedProductsChunk) 
                                 <div class="row">
                                      @foreach($relatedProductsChunk as $relatedProduct) 
-                                    <div class="col-lg-3 col-sm-6">
+                                    <div class="col-lg-6 col-sm-6">
                                         <div class="container">
                                                 <div  class="product-card">
                                                 <a href="{{route('publish.show', ['id' =>$relatedProduct->id])}}">
                                                 <img src="/storage/cover_page/{{$relatedProduct->cover_page}}" height="250" width="auto"> 
-                                                <h4 class="product-title">{{$relatedProduct->title}}</h4> 
+                                                <h6 class="product-title">{{$relatedProduct->title}}</h6> 
                                                 </a>
                                                 <del></del>
                                                  <p class="price">{{$relatedProduct->price/100}}</p> 
@@ -132,7 +133,7 @@
                                                                     <form action="{{route('addToCart')}}" class="text-center" method="POST"> 
                                                                              {{ csrf_field() }} 
                                                                     <input type="hidden" name="id"  value="{{$relatedProduct->id}}"> 
-                                                                     <input type="number" class="form-control" name="qty">           
+                                                                     <input type="number" class="form-control" name="qty" placeholder="Enter quantity of Books">           
                                                                                 
                                                                                 <div class="row justify-content-center">
                                                                                     <div class="col-md-6">

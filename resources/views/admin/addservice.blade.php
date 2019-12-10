@@ -75,6 +75,7 @@
                         @foreach ($service as $item)
                         <tr>
                                 <td>{{$item->name}}</td>
+                        <td><img src="/storage/service/{{$item->image}}" </td>
                                 <td class="text-center">{{$item->description}}</td>
                                 <td class="d-flex justify-content-between">
                                 <a href="/service/{{$item->id}}/edit" class="btn btn-danger btn-user btn-block">Edit</a>

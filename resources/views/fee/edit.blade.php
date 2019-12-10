@@ -13,7 +13,7 @@
                  {{method_field('PUT')}}
               <div class="form-group">
                 <input type="text" class="form-control form-control-user" id="Name" aria-describedby="name"
-                  value="{{$fee->city}}" name="name">
+                  value="{{$fee->city}}" name="city">
               </div>
               <div class="form-group">
                     <input type="text" class="form-control form-control-user" id="Name" aria-describedby="name"

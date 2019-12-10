@@ -1767,3 +1767,7 @@ footer {
 		font-size: 1.5rem;
 	}
 }
+.breadcrumb{
+  background-color:#FF5370;
+  color:#fafafa;
+}

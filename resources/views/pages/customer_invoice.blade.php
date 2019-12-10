@@ -18,7 +18,7 @@
 
         <div class="content-area">
             <div class="back-button">
-            <a href="{{route('orderDetails',['id' => $order->id])}}" class="btn-outline-info">previous page</a>
+            <a href="{{route('orderDetails',['id' => $order->id])}}" class="btn-outline-info" >prev page</a>
             </div>
             <div class="recipt card">
                     <div class="branding">
@@ -29,7 +29,7 @@
                         <h1>Invoice</h1>
                         <!-- <h5>Paymant receipt</h5> -->
                         <div class="invoice-id">
-                            <div class="order-id id-hidden mr-5">
+                            <div class="order-id id-hidden ">
                                 <h6>Order ID</h6>
                             <p>{{$order->order_id}}</p>
                             </div>
@@ -39,27 +39,25 @@
                             </div>
                         </div>
                     </div>
-                   
-                   
                     
                 </div>
                 <div class="card-body">
                     <div class="body-title row my-4">
                         <div class="billed col-sm-6 col-md-3 mx-auto">
-                                <div class="order-id id-sm-show ml-5">
+                                <div class="order-id id-sm-show ml-2">
                                     <h6>Order ID</h6>
                                     <hr>
                                     <p><strong>{{$order->order_id}}</strong></p>
                                     <hr>
                                 </div>
                             <ul>
-                            <li><strong>Billed to:</strong></li>
+                            <li><strong>Billed to: </strong> </li>
                             <li>{{$order->full_name}}</li>
                             <li>{{$order->address}}</li>
                             <li>{{$order->city. ' , ' .$order->state. ' , '. $order->country}}</li>
                             </ul>
                         </div>
-                        <div class="comp">
+                        <div class="billed col-sm-6 col-md-3 mx-auto">
                             <ul>
                                 <li><strong>Issued By:</strong></li>
                                 <li>Timsmek Publishers</li>

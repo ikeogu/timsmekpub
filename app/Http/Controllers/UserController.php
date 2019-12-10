@@ -94,7 +94,8 @@ class UserController extends Controller
         $user->country = $request->country;
         $user->state = $request->state;
         $user->zip = $request->zip;
-        return $user->save() ? redirect(route('profile')) : back()->with('success','Profile Updated!');
+        $user->city = $request->city;
+        return $user->save() ? redirect(route('checkout')) : back()->with('success','Profile Updated!');
        
     }
 }

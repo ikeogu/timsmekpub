@@ -23,4 +23,8 @@ class Publish extends Model
     {
         return $this->hasMany('App\ShipFee');
     }
+
+    public function review(){
+        return $this->hasOne('App\user');
+    }
 }

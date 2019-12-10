@@ -39,7 +39,7 @@ Route::resource('service', 'ServiceController');
 Route::any('search','SearchController@search')->name('search');
 Route::resource('category', 'CategoryController');
 Route::resource('shippingFee', 'ShipFeeController');
-
+Route::resource('review', 'ReviewController');
 //download article
 Route::get('/downloadPDF/{id}','PublishController@downloadPDF')->name('download');
 // search function
@@ -94,6 +94,8 @@ Route::post('/send', 'EmailController@send');
  Route::get('removeItem/{id}', 'PublishController@removeItem')->name('removeItem');
  Route::get('emptyCart', 'PublishController@emptyCart')->name('emptyCart');
  Route::get('checkout', 'PublishController@checkout')->middleware('auth')->name('checkout');
+ 
+ Route::get('checkouts', 'PublishController@checkouts')->middleware('auth')->name('checkouts');
  //user profile
  Route::get('profile', 'PublishController@profile')->middleware('auth')->name('profile');
  Route::get('editProfile/{id}','PublishController@editProfile')->middleware('auth')->name('editProfile');

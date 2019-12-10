@@ -74,17 +74,17 @@
                                             <div class="card">
                                                 <div class="front mb-5">
                                                     <div class="product">
-                                                    <img class="img-circle" src="{{$item->cover_page}}" />
+                                                    <img class="img-circle" src="storage/publish/{{$item->cover_page}}" />
                                                     </div>
                                                     <div class="content text-center">
                                                     <h6 class="f-w-600 m-b-10">{{$item->title}}</h6>
                                                     <hr>
                                                     @if($item->available == 1)
-                                                        <p class="f-w-600 m-b-10">only Soft copy</p>
+                                                        <p class="f-w-600 m-b-10">Soft copy</p>
                                                         @elseif($item->available == 2)
-                                                            <p class="f-w-600 m-b-10">only Hard copy</p> 
+                                                            <p class="f-w-600 m-b-10">Hard copy</p> 
                                                     @elseif($item->available == 3)
-                                                        <p class="f-w-600 m-b-10">available both Hard and soft copy</p> 
+                                                        <p class="f-w-600 m-b-10">Hard and soft copy</p> 
                                                     @endif 
                                                     <p class="price"> {{date('d/M/Y ',strtotime($item->year_pub))}}</p>
                                                     @if($item->status === 1 && $item->available == 1)

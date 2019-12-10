@@ -47,7 +47,7 @@
       <div class="row">
         <div class="col-md-3 p-3">
           <div class="about-logo">
-          <img src="{{$item->image}}" alt=".." class="img-fluid" height="150" width="auto">
+          <img src="/storage/service/{{$item->image}}" alt=".." class="img-fluid" height="150" width="auto">
           </div>
         </div>
         <div class="col-md-9 p-3">

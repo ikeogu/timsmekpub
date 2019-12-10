@@ -13,6 +13,7 @@ use Paystack;
 use App\Purchase;
 use App\Order;
 use App\User;
+use App\ShipFee;
 use Cloudder;
 use Cloudinary;
 
@@ -186,7 +187,7 @@ $ace = Cloudinary\Uploader::upload($book_content, array( "public_id" => "book_co
     {
         //
         Publish::whereId($publish)->update($request->except(['_method','_token']));
-        return redirect(route('boooks'))->with('success','Book Updated');
+        return redirect(route('books'))->with('success','Book Updated');
     }
 
     /**
@@ -254,7 +255,27 @@ $ace = Cloudinary\Uploader::upload($book_content, array( "public_id" => "book_co
         $totalQty = $cart->totalQty;
         //dd($totalPrice,$totalQty);
         $relatedProducts = Publish::all()->take(4);
-        return  view('pages.carts', compact(['products','totalPrice','totalQty','relatedProducts','currency']));
+        //get fee from city
+       
+        //     if(Auth::check()){
+        //         $u =Auth::user()->id;
+        //         $user = User::findOrFail($u);
+                
+        //         $fee = ShipFee::where('city',$user->city)->first();
+                
+                
+        //         if(($fee->fee) != null ){
+        //             $shipfee = $fee->fee;
+                    
+        //         }
+        //         else{
+        //             return redirect(route('editProfile'))->with('warning','Fill in Your Details');
+        //         }
+               
+        //     }
+       
+        //    $gTotal = $shipfee + $totalPrice;
+        return  view('pages.carts', compact(['products','totalPrice','totalQty','relatedProducts','currency','shipfee']));
     }
 
     public function reduceItemByOne($id){
@@ -290,7 +311,12 @@ $ace = Cloudinary\Uploader::upload($book_content, array( "public_id" => "book_co
 
       return redirect(route('publish.index'));
    }
-
+   public function checkouts(){
+       if(Auth::check()){
+        return redirect(route('editProfile',Auth::user()->id));
+       }
+   
+   }
    public function checkout(){
     if(Auth::user()){
        $user = Auth::user();
@@ -299,11 +325,24 @@ $ace = Cloudinary\Uploader::upload($book_content, array( "public_id" => "book_co
     // $categories = Category::all();
     $oldCart = Session::has('cart') ? Session::get('cart') : null;
     $cart = new Cart($oldCart);
+    $u =Auth::user()->id;
+    $user = User::findOrFail($u);
+    
+    $fee = ShipFee::where('city',$user->city)->first();
+    
+    
+    if(($fee->fee) != null ){
+        $shipfee = $fee->fee;
+        
+    }
+
     $products = $cart->items;
-    $totalPrice = $cart->totalPrice;
-    $totalPriceCheckout = $cart->totalPrice*100;
+    $totalPrice = $cart->totalPrice + $shipfee;
+    $totalPriceCheckout = $totalPrice * 100;
     $totalQty = $cart->totalQty;
-    return  view('pages.checkout', compact(['products','totalPrice','totalQty','totalPriceCheckout','user','currency']));
+    
+    
+    return  view('pages.checkout', compact(['products','totalPrice','totalQty','totalPriceCheckout','user','currency','shipfee']));
     }
    }
    
@@ -379,7 +418,7 @@ $ace = Cloudinary\Uploader::upload($book_content, array( "public_id" => "book_co
             return $order;
         });
         $currency = '₦';
-        //$categories = Category::all();
+        
         $relatedProducts = Publish::latest()->take(8)->get();
      return view('pages.profile',compact(['categories','orders','relatedProducts','currency']));
     }
