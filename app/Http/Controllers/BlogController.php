@@ -47,7 +47,7 @@ class BlogController extends Controller
             'caption'=> 'required',
             'body'=> 'required',
             'writter'=> 'required',
-            'image'=>'required'
+            
         ]);
         if($request->hasFile('image')){
             //get file name with extension
@@ -118,7 +118,25 @@ class BlogController extends Controller
     public function update(Request $request,$blog)
     {
         //
-        Blog::whereId($blog)->update($request->except(['_method','_token']));
+        if($request->hasFile('image')){
+            //get file name with extension
+            $fileNameWithExt = $request->file('image')->getClientOriginalName();
+            //get just file name
+            $filenames = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+            //get just extension
+            $extension = $request->file('image')->getClientOriginalExtension();
+            //file name to store
+            $fileNameToStore = $filenames.'_'.time().'.'.$extension;
+            //upload image
+            $path = $request->file('image')->storeAs('public/blog_post/', $fileNameToStore);
+        }else{
+            $fileNameToStore = 'noimage.jpg';
+        }
+        
+         $b = Blog::find($blog);
+         $b->image = $fileNameToStore;
+         $b->save();
+        Blog::whereId($blog)->update($request->except(['_method','_token','image']));
         return redirect(route('blogs'))->with('success','Updated');
     }
 

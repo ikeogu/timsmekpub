@@ -44,7 +44,7 @@ class HomeController extends Controller
         $book = Publish::paginate(10);
         $recent = Publish::latest()->take(8)->get();
         // dd($recent);
-        $review = Review::paginate(5);
+        $review = Review::with('publish','user')->paginate(5);
         return view('pages/index',['blog'=>$blog, 'book'=>$book,'recent'=>$recent, 'review'=>$review]);
 
     }

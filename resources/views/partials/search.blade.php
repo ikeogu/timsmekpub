@@ -36,6 +36,11 @@
                                             <a href="{{route('authors.show',['id'=> $item->id])}}">
                                                 <p>{{$item->biography ?? '' }}</p>
                                             </a>
+
+                                            <a href="{{route('blog.show',['id'=> $item->id])}}">
+                                                <p>{{$item->caption ?? '' }}</p>
+                                                <p>{{$item->body}}</p>
+                                            </a>
                                             
                                         <hr>
                                     @endforeach

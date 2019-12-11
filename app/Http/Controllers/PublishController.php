@@ -82,40 +82,40 @@ class PublishController extends Controller
         ]);
 
         if($request->hasFile('content')){
-            // //get file name with extension
-            // $fileNameWithExt = $request->file('content')->getClientOriginalName();
-            // //get just file name
-            // $filename = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
-            // //get just extension
-            // $extension =  $request->file('content')->getClientOriginalExtension();
-            // //file name to store
-            // $fileNameToSave = $filename.'_'.time().'.'.$extension;
-            // //upload image
-            // $path =  $request->file('content')->storeAs('public/publish/', $fileNameToSave);
-            $book_content = $request->file('content')->getRealPath();
+            //get file name with extension
+            $fileNameWithExt = $request->file('content')->getClientOriginalName();
+            //get just file name
+            $filename = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+            //get just extension
+            $extension =  $request->file('content')->getClientOriginalExtension();
+            //file name to store
+            $fileNameToSave = $filename.'_'.time().'.'.$extension;
+            //upload image
+            $path =  $request->file('content')->storeAs('public/publish/', $fileNameToSave);
+//             $book_content = $request->file('content')->getRealPath();
             
 
-$ace = Cloudinary\Uploader::upload($book_content, array( "public_id" => "book_content","resource_type"=>"image",   "format"=>"pdf","api_key"=>"757627628485111", "api_secret"=>"VsIvWf9mBJASAd9hEmdUvHm28bo","cloud_name"=>"hyaoowl23"));
+// $ace = Cloudinary\Uploader::upload($book_content, array( "public_id" => "book_content","resource_type"=>"image",   "format"=>"pdf","api_key"=>"757627628485111", "api_secret"=>"VsIvWf9mBJASAd9hEmdUvHm28bo","cloud_name"=>"hyaoowl23"));
 
-            $book_content = data_get($ace,'url');
+//             $book_content = data_get($ace,'url');
             
         }
         if($request->hasFile('cover_page')){
-            // //get file name with extension
-            // $fileNameWithExt = $request->file('cover_page')->getClientOriginalName();
-            // //get just file name
-            // $filenames = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
-            // //get just extension
-            // $extension = $request->file('cover_page')->getClientOriginalExtension();
-            // //file name to store
-            // $fileNameToStore = $filenames.'_'.time().'.'.$extension;
-            // //upload image
-            // $path = $request->file('cover_page')->storeAs('public/cover_page/', $fileNameToStore);
-            $image = $request->file('cover_page')->getRealPath();
+            //get file name with extension
+            $fileNameWithExt = $request->file('cover_page')->getClientOriginalName();
+            //get just file name
+            $filenames = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+            //get just extension
+            $extension = $request->file('cover_page')->getClientOriginalExtension();
+            //file name to store
+            $fileNameToStore = $filenames.'_'.time().'.'.$extension;
+            //upload image
+            $path = $request->file('cover_page')->storeAs('public/cover_page/', $fileNameToStore);
+            // $image = $request->file('cover_page')->getRealPath();
 
-            Cloudder::upload($image, null);
+            // Cloudder::upload($image, null);
 
-            $image_url = Cloudder::show(Cloudder::getPublicId());
+            // $image_url = Cloudder::show(Cloudder::getPublicId());
         }
         
         $book = new Publish();
@@ -138,7 +138,7 @@ $ace = Cloudinary\Uploader::upload($book_content, array( "public_id" => "book_co
         $book->author_id = $request->author_id;
         
         $book->content = $book_content;
-        $book->cover_page = $image_url;
+        $book->cover_page = $book->cover_page;
         //dd($book->content,$book->cover_page);
         if($book->save()){
          return redirect(route('publish.create'))->with('success','Book Published');
@@ -186,7 +186,23 @@ $ace = Cloudinary\Uploader::upload($book_content, array( "public_id" => "book_co
     public function update(Request $request, $publish)
     {
         //
-        Publish::whereId($publish)->update($request->except(['_method','_token']));
+        if($request->hasFile('cover_page')){
+            //get file name with extension
+            $fileNameWithExt = $request->file('cover_page')->getClientOriginalName();
+            //get just file name
+            $filenames = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+            //get just extension
+            $extension = $request->file('cover_page')->getClientOriginalExtension();
+            //file name to store
+            $fileNameToStore = $filenames.'_'.time().'.'.$extension;
+            //upload image
+            $path = $request->file('cover_page')->storeAs('public/cover_page/', $fileNameToStore);
+           
+        }
+        $p = Publish::find($publish);
+        $p->cover_page = $fileNameToStore;
+        $p->save();
+        Publish::whereId($publish)->update($request->except(['_method','_token','cover_page']));
         return redirect(route('books'))->with('success','Book Updated');
     }
 
@@ -362,12 +378,13 @@ $ace = Cloudinary\Uploader::upload($book_content, array( "public_id" => "book_co
    public function handleGatewayCallback()
    {
        if(Auth::user()){
-       $paymentDetails = Paystack::getPaymentData();
+       //$paymentDetails = Paystack::getPaymentData();
 
       //dd($paymentDetails);
        $paymentDetails = Paystack::getPaymentData();
        $cart = Session::get('cart');
       // $cart = new Cart($oldCart);
+      
        if($paymentDetails){
            $order = new Order();
            $order->order_id = $paymentDetails['data']['reference'];

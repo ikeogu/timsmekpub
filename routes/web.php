@@ -124,3 +124,12 @@ Route::post('/send', 'EmailController@send');
     //customers
     Route::get('viewCustomers','Admin@viewCustomers')->name('viewCustomers');
     Route::get('viewCustomer/{id}','Admin@viewCustomer')->name('viewCustomer');
+    //all about orders
+    
+    Route::get('completedOrder', 'Admin@completedOrder')->name('corders');
+    Route::get('pendingOrder', 'Admin@pendingOrder')->name('porders');
+    Route::get('inProgress_orders', 'Admin@inprogressOrder')->name('iorders');
+    Route::get('rejectedOrders', 'Admin@rejectedOrder')->name('rorders');
+    Route::get('cancelledOrders', 'Admin@cancelledOrder')->name('caorders');
+    Route::post('search_blog','SearchController@search_blog');
+   

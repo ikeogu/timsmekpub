@@ -31,7 +31,7 @@
                 @csrf
                 <div class="form-group">
                   <div class="custom-file">
-                    <input type="file" class="form-control form-control-user" name="image" required>
+                    <input type="file" class="form-control form-control-user" name="image" >
                     <small>Upload Image</small>
                   </div>
                 </div>

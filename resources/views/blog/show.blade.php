@@ -29,9 +29,10 @@
         </div>
         <div class="col-md-4">
           <div class="sidebar-box mt-5">
-            <form action="" class="search-form">
+            <form action="/search_blog" class="search-form" method="POST">
+              @csrf
               <div class="input-group mb-2 mr-sm-2">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" class="form-control" placeholder="Search" name="search">
                 <div class="input-group-prepend">
                   <div class="input-group-text">
                     <i class="icon ion-md-search"></i>

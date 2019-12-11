@@ -48,20 +48,20 @@ class EditorController extends Controller
            'photo' => 'required',
            'bio' => 'required'
        ]);
-    //    if($request->hasFile('photo')){
-    //     //get file name with extension
-    //     $fileNameWithExt = $request->file('photo')->getClientOriginalName();
-    //     //get just file name
-    //     $filenames = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
-    //     //get just extension
-    //     $extension = $request->file('photo')->getClientOriginalExtension();
-    //     //file name to store
-    //     $fileNameToStore = $filenames.'_'.time().'.'.$extension;
-    //     //upload image
-    //     $path = $request->file('photo')->storeAs('public/editors/', $fileNameToStore);
-    // }else{
-    //     $fileNameToStore = 'noimage.jpg';
-    // }
+       if($request->hasFile('photo')){
+        //get file name with extension
+        $fileNameWithExt = $request->file('photo')->getClientOriginalName();
+        //get just file name
+        $filenames = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+        //get just extension
+        $extension = $request->file('photo')->getClientOriginalExtension();
+        //file name to store
+        $fileNameToStore = $filenames.'_'.time().'.'.$extension;
+        //upload image
+        $path = $request->file('photo')->storeAs('public/editors/', $fileNameToStore);
+    }else{
+        $fileNameToStore = 'noimage.jpg';
+    }
     // if($request->hasFile('photo')){
     //     $image = $request->file('photo')->getRealPath();
 
@@ -114,7 +114,24 @@ class EditorController extends Controller
     public function update(Request $request, $editor)
     {
         //
-        Editor::whereId($editor)->update($request->except(['_method','_token']));
+        if($request->hasFile('photo')){
+            //get file name with extension
+            $fileNameWithExt = $request->file('photo')->getClientOriginalName();
+            //get just file name
+            $filenames = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+            //get just extension
+            $extension = $request->file('photo')->getClientOriginalExtension();
+            //file name to store
+            $fileNameToStore = $filenames.'_'.time().'.'.$extension;
+            //upload image
+            $path = $request->file('photo')->storeAs('public/editors/', $fileNameToStore);
+        }else{
+            $fileNameToStore = 'noimage.jpg';
+        }
+        $e = Editor::find($editor);
+        $e->photo = $fileNameToStore;
+        $e->save();
+        Editor::whereId($editor)->update($request->except(['_method','_token','photo']));
         return redirect(route('editors.index'))->with('success','Updated');
 
     }

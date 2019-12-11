@@ -14,7 +14,7 @@
                   <div class="item-img mb-4">
                       <div class="row">
                         <div class="col-6 m-0 p-0">
-                            <img src="{{$product['item']['cover_page']}}" alt="..." width="auto" height="150px">
+                            <img src="storage/publish/{{$product['item']['cover_page']}}" alt="..." width="auto" height="150px">
                         </div>
                         <div class="col-6 m-0 p-0">
                             <div class="details pl-1">
@@ -86,11 +86,14 @@
                   <a class="btn btn-outline-danger btn-fill my-2" href="{{route('emptyCart')}}">EMPTY CART</a>
                 </div>
               <div class="col-md-4">
-                @if(session()->has('cart') && (Auth::user()->city != null) )
+                @auth
+                @if(session()->has('cart') )
                 <a class="btn btn-outline-primary btn-fill" href="{{route('checkout')}}">PROCEED CHECKOUT</a>
+                @endauth
                 @elseif(session()->has('cart'))
                 <a class="btn btn-outline-primary btn-fill" href="{{route('checkouts')}}">PROCEED CHECKOUT</a>
-                @elseif(session()->has('cart') < 1)
+                @endif
+                @if(session()->has('cart') < 1)
                 <a class="btn btn-outline-primary btn-fill" style="display:block;">PROCEED CHECKOUT</a>
                 @endif
               </div>

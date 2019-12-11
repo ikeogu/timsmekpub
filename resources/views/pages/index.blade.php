@@ -124,16 +124,16 @@
                         
                             <div class="back mb-5">
                                 
-                                <div class="user">
-                                <img class="img-circle" src="/storage/authors/{{$item->author->photo}}" height="50" width="60">
-                                </div>
+                                {{-- <div class="user">
+                                {{-- <img class="img-circle" src="/storage/authors/{{$item->author->photo}}" height="50" width="60">
+                                </div> --}}
                                 <div class="content text-center">
                                     <div class="main">
-                                    <h6 class="m-b-10">{{$item->author->name}} </h6>
+                                    {{-- <h6 class="m-b-10">{{$item->author->name}} </h6>
                                     <a href="/authors/{{$item->author->id}}">View more</a>
-                                    
+                                     --}} 
                                     <hr> 
-                                    <h6 class="m-b-10">Cat: {{$item->category->name}}</h6>
+                                    {{-- <h6 class="m-b-10">Cat: {{$item->category->name}}</h6> --}}
                                     
                                     <a href="/publish/{{$item->id}}">About book</a>
                                     <p class="text-muted m-t-15">{{str_limit($item->description, $limit = 30, $end = '...')}}</p>
@@ -147,9 +147,12 @@
                             </div> <!-- end back panel -->
                         </div> <!-- end card -->
                     </div> <!-- end card-container -->
-                    </div> 
+                    </div><br><br>
                 @endforeach
+                <div class="row col-md-6 mb-5">
+                        <br><br><br><br>
                 {{$book->links()}}
+                </div>
             @else    
           
               
@@ -250,17 +253,20 @@
         <hr>
         <section id="recent-blog-post">
           <div class="header text-center">
-            <h2>Peoples Review on our Books</h2>
+            <h2>What people are saying about Timsmek Books!</h2>
             <p>Read interesting topics from Timsmek Global Publishers.</p>
           </div>
           <div class="container">
               <div class="row">
-                  @if($blog->count() > 0)
+                  @if($review->count() > 0)
                       @foreach ($review  as $item)
                           <div class="col-md-4">
                               <a href="/review/{{$item->id}}" class="blog-card mt-5">
                                 <div class="card-img">
-                                {{-- <img src="/storage/blog_post/{{$item->image}}" alt="" class="img-fluid"> --}}
+                                <img src="/storage/cover_page/{{$item->publish->image}}" alt="" class="img-fluid">
+                                </div>
+                                <div class="blog-title">
+                                <h3>{{$item->publish->title}}</h3>
                                 </div>
                                 <div class="blog-title">
                                   <h3 class="heading"> rated :
@@ -276,7 +282,7 @@
                                 <i class="icon ion-md-star"></i>
                                 @endif
                                 </h3>
-                                  <date>{{$item->created_at->diffForHumans()}} {{$item->writter}}<i class="icon ion-md-chatbubbles"></i> </date>
+                                  <date>{{$item->created_at->diffForHumans()}} <i class="icon ion-md-chatbubbles"></i> </date>
                                   <p>{{str_limit($item->comment, $limit = 30, $end = '...') }}</p>
                                 </div>
                               </a>
@@ -285,7 +291,7 @@
                       
                   @else
                       <div class="col-md-8">
-                        <h3>We Don't Recent Review from our buyers.</h3>
+                        <h3>Oops!!  No Recent Comments from our buyers.</h3>
                       </div>
                   @endif
               </div>
@@ -322,7 +328,7 @@
                       
                   @else
                       <div class="col-md-8">
-                        <h3>We Don't have recent Post on Our Blog.</h3>
+                        <h3>Oops!! no recent post on our Blog.</h3>
                       </div>
                   @endif
               </div>

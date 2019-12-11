@@ -83,6 +83,47 @@ class Admin extends Controller
         return view('admin/orders',['orders' => $orders]);
     }
     }
+    public function completedOrder(){
+        if(Auth::user()->isAdmin === 1){
+        $orders = Order::where('status','delivered')->latest()->paginate(10);
+        
+        //dd($orders);
+        return view('admin/completed_orders',['orders' => $orders]);
+    }
+    }
+    public function rejectedOrder(){
+        if(Auth::user()->isAdmin === 1){
+        $orders = Order::where('status','rejected')->latest()->paginate(10);
+        
+        //dd($orders);
+        return view('admin/rejected_orders',['orders' => $orders]);
+    }
+    }
+    public function cancelledOrder(){
+        if(Auth::user()->isAdmin === 1){
+        $orders = Order::where('status','cancelled')->latest()->paginate(10);
+        
+        //dd($orders);
+        return view('admin/cancelled_orders',['orders' => $orders]);
+    }
+    }
+    public function pendingOrder(){
+        if(Auth::user()->isAdmin === 1){
+        $orders = Order::where('status','pending')->latest()->paginate(10);
+        
+        //dd($orders);
+        return view('admin/pending_orders',['orders' => $orders]);
+    }
+    }
+
+    public function inprogressOrder(){
+        if(Auth::user()->isAdmin === 1){
+        $orders = Order::where('status','in Progress')->latest()->paginate(10);
+        
+        //dd($orders);
+        return view('admin/in_progress',['orders' => $orders]);
+    }
+    }
 
     
 

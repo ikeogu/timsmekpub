@@ -19,6 +19,8 @@ class CreateReviewsTable extends Migration
             $table->integer('publish_id');
             $table->tinyInteger('ratings');
             $table->longText('comment');
+            $table->string('subject');
+            $table->string('email');
             $table->timestamps();
         });
     }

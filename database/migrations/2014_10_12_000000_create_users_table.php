@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->integer('isAdmin')->default(3);
             $table->string('email')->unique();
             $table->string('phone')->unique();
-            
+            $table->string('role')->default('user');
             $table->boolean('agree');
             $table->integer('newslater')->nullable()->default(0);
             $table->timestamp('email_verified_at')->nullable();

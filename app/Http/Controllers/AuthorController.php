@@ -134,7 +134,24 @@ class AuthorController extends Controller
      */
     public function update(Request $request, $author)
     {
-       Author::whereId($author)->update($request->except(['_method','_token']));
+        if($request->hasFile('photo')){
+            //get file name with extension
+            $fileNameWithExt = $request->file('photo')->getClientOriginalName();
+            //get just file name
+            $filenames = pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+            //get just extension
+            $extension = $request->file('photo')->getClientOriginalExtension();
+            //file name to store
+            $fileNameToStore = $filenames.'_'.time().'.'.$extension;
+            //upload image
+            $path = $request->file('photo')->storeAs('public/authors/', $fileNameToStore);
+        }else{
+            $fileNameToStore = 'noimage.jpg';
+        }
+        $a = Author::find($author);
+        $a->photo = $fileNameToStore;
+        $a->save();
+       Author::whereId($author)->update($request->except(['_method','_token','photo']));
        return redirect(route('allauth'))->with('success', 'Author Update');
     }
 

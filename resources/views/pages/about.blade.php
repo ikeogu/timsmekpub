@@ -63,30 +63,33 @@
   <div class="container">
     <div class="header text-center mt-5">
       <h2>Meet Our Editors</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis mollitia cum tempore sequi, vel</p>
+      <p>Below are the editoral team, who reviews thoroughly before we publish.</p>
     </div>
-    <div class="row">
+    <div class="row ">
       @foreach ($editor as $item)
-        <div class="col-md-4">
-          <div class="card user-card mt-5">
+        <div class="col-md-4 ">
+          <div class="card user-card ">
             <div class="card-block">
-              <div class="user-image">
-              <img src="/storage/editors{{$item->photo}}" class="img-radius" alt="User-Profile-Image">
+              <div class="">
+              <img src="/storage/editors/{{$item->photo}}" class="img-radius" alt="User-Profile-Image"  style="height:190px !important; width:auto;">
               </div>
-              <h6 class="f-w-600 m-t-25 m-b-10">{{$item->name}}</h6>
+              <h4 class="f-w-600 m-t-25 m-b-10">{{$item->name}}</h4>
               
               <hr>
-              <p class="m-t-15 text-muted">{{$item->bio}}
-              </p>
+              <h6 class="text-dark">{!!nl2br($item->bio)!!}
+              </h6>
               <hr>
               
             </div>
           </div>
-        </div> 
+        </div>
+        <br><br><br><br><br><br><br><br> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
       @endforeach
-      {{$editor->links()}}
+      
       
     </div>
   </div>
+  {{$editor->links()}}
 </section>
+<br><br><br><br><br>
 @endsection

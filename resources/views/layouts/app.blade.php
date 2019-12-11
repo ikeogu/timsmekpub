@@ -123,8 +123,9 @@
 							<div class="time-logo">
 								<img src="{{asset('img/logo.png')}}" alt="" class="img-fluid" width="300">
 							</div>
-							<p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto id magnam fugit officia. Nam qui odit vero
-								quia pariatur enim dolore voluptatem quibusdam ducimus dignissimos ex ea, eveniet consectetur repellendus.
+							<p class="mt-4">Timsmek Global Publishers® has the best editorial team in the world. With excellence carefully worn as a sacred robe and integrity sitting as the host, you can never get disappointed publishing with us. <br>We do the most incredible reviews, buy the best materials, give the best prints and, without apologies, blow your mind with the output you’d get.  
+
+
 							</p>
 						</div>
 						<div class="col-md-4 ">

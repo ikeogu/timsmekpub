@@ -16,8 +16,9 @@ class ReviewController extends Controller
     public function index()
     {
         //
-        $re = Review::all();
-        return view('review',['re'=>$re]);
+        $re = Review::with('publish','user')->get();
+        //dd($re);
+        return view('admin/review',['re'=>$re]);
     }
 
     /**
@@ -44,13 +45,16 @@ class ReviewController extends Controller
         //
         $this->validate(request(),[
             'comment'=> 'required',
-            'rating'=>'required'
+            'ratings'=>'required',
+            'email'=>'required'
         ]);
         $re = new Review();
         $re->comment = $request->comment;
-        $re->rating = $request->ratings;
+        $re->ratings = $request->ratings;
         $re->publish_id = $request->book_id;
         $re->user_id = auth()->user()->id;
+        $re->subject = $request->subject;
+        $re->email = $request->email;
         // 
         if($re->save()){
             return back()->with('success','Thanks for your Review!');

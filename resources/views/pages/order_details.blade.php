@@ -163,18 +163,27 @@
                             <form action="{{route('review.store')}}" method="POST">
                                     @csrf
                                     <div class="form-row">
+                                           
+                                            @foreach($cart->items as $item)
                                         <div class="form-group col-md-6">
                                             
-                                        <input type="hidden" value="{{Auth::user()->id}}" name="user_id" class="form-control" id="inputname" placeholder="Name">
+                                          <input type="hidden" value="{{Auth::user()->id}}" name="user_id" class="form-control" id="inputname" placeholder="Name">
+                                           <label for="inputemail">Book ID</label>
+                                           
+                                            <input type="text" class="form-control" id="inputorderid"
+                                          name="book_id" readonly value="{{$item['item']['id']}}">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="inputemail">Book ID</label>
+                                            <label for="inputemail">Book title</label>
+                                           
                                             <input type="text" class="form-control" id="inputorderid"
-                                          name="book_id" readonly value="{{$order->order_id}}">
+                                           readonly value="{{$item['item']['title']}}">
                                         </div>
+                                        @endforeach
+                                       
                                     <input type="hidden" name="phone" value="{{Auth::user()->phone}}">
                                         <div class="form-group col-md-12">
-                                            <label for="inputemail">EMAIL</label>
+                                            <label for="inputemail">Email</label>
                                         <input value="{{Auth::user()->email}}" type="email" class="form-control" id="inputemail"
                                             name="email" placeholder="Email">
                                         </div>
@@ -184,8 +193,13 @@
                                                 name="subject" placeholder="Subject">
                                             </div>
                                         <div class="form-group col-md-12">
+                                            <label for="inputemail">Star Rating</label>
+                                            <input  type='number' class="form-control" id="inputemail"
+                                                name="ratings" min="1" max="5">
+                                        </div>
+                                        <div class="form-group col-md-12">
                                             <label for="exampleFormControlTextarea1">Write to us</label>
-                                            <textarea name="body" class="form-control" id="exampleFormControlTextarea1"
+                                            <textarea name="comment" class="form-control" id="exampleFormControlTextarea1"
                                                 rows="3" placeholder="Type here..!!"></textarea>
                                         </div>
                                     </div>

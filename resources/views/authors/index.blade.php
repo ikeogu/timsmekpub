@@ -3,7 +3,7 @@
 <section id="store" class="container mt-5">
     <div class="header text-center">
       <h2>Meet Our Authors</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis mollitia cum tempore sequi, vel</p>
+      <p>Below are the writers we have published and those whose works are in our store here. </p>
 		</div>
 		
 		
@@ -32,7 +32,8 @@
 						</div>
 					</div>	
 				@endforeach
-		</div>
+    </div>
+    <br><br>
 		@else
 	
       <div class="row">
@@ -101,6 +102,7 @@
           </div>
         </div>
      
-	</section> 
+  </section> 
+  <br><br><br>
 	@endif
 @endsection

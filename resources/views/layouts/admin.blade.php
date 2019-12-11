@@ -60,7 +60,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Article
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -125,11 +125,42 @@
                 <i class="fa fa-fw fa-chart-area"></i>
                 <span>Softcopy Payments</span></a>
             </li>
+            <div class="sidebar-heading">
+                    Orders
+            </div>
             <li class="nav-item">
             <a class="nav-link" href="{{route('allOrders')}}">
                     <i class="fa fa-fw fa-chart-area"></i>
-                    <span>Hardcopy Orders</span></a>
+                    <span>all Hardcopy Orders</span></a>
             </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{route('corders')}}">
+                    <i class="fa fa-fw fa-chart-area"></i>
+                    <span>Completed Orders</span></a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{route('caorders')}}">
+                    <i class="fa fa-fw fa-chart-area"></i>
+                    <span>Cancelled Orders</span></a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{route('porders')}}">
+                    <i class="fa fa-fw fa-chart-area"></i>
+                    <span>Pending Orders</span></a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{route('iorders')}}">
+                    <i class="fa fa-fw fa-chart-area"></i>
+                    <span>InProgrss Orders</span></a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{route('rorders')}}">
+                    <i class="fa fa-fw fa-chart-area"></i>
+                    <span>Rejected Orders</span></a>
+            </li>
+            <div class="sidebar-heading">
+                    Shipping Fee
+            </div>
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                     <a class="nav-link" href="{{route('shippingFee.index')}}">
@@ -141,7 +172,11 @@
                     <i class="fa fa-fw fa-chart-area"></i>
                     <span>View Customers</span></a>
             </li>
-            
+            <li class="nav-item">
+                    <a class="nav-link" href="{{route('review.index')}}">
+                    <i class="fa fa-fw fa-user"></i>
+                    <span>Book Reviewed</span></a>
+                </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{route('contact.index')}}">
                 <i class="fa fa-fw fa-user"></i>

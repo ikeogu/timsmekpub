@@ -96,39 +96,12 @@
             </div> --}}
             <div class="form-group col-md-4">
               <label for="inputState">State/Province</label>
-              <select id="inputState" class="form-control" name="state" required>
-                <option value="{{$user->state}}">{{$user->state}}</option>
-                <option >Choose...</option>
-                <option>Abia</option>
-                <option>Adamawa</option>
-                <option>Akwa-ibom</option>
-                <option>Anambra</option>
-                <option>Bauchi</option>
-                <option>Bayelsa</option>
-                <option>Benue</option>
-                <option>Borno</option>
-                <option>Cross River</option>
-                <option>Delta</option>
-                <option>Ebonyi</option>
-                <option>Edo </option>
-                <option>Ekiti </option>
-                <option>Enugu</option>
-                <option>Gombe</option>
-                <option>Jigawa</option>
-                <option>Kaduna</option>
-                <option>Kano</option>
-                <option>Kastina</option>
-                <option>Kebbi</option>
-                <option>Kogi</option>
-                <option>Kwara</option>
-                <option>Nassarawa</option>
-                <option>Niger</option>
-
-              </select>
+              <input class="form-control" id="inputCity" placeholder=" Enter State" name="state"
+                value="{{$user->state}}">{{$user->state}}>
             </div>
             <div class="form-group col-md-4">
               <label for="inputCity">City</label>
-              <input type="text" class="form-control" id="inputCity" placeholder=" enter city" name="city" value="{{$user->city}}" required>
+              <input type="text" class="form-control" id="inputCity" placeholder=" Enter City" name="city" value="{{$user->city}}" required>
             </div>
           </div>
           <div class="form-row">

@@ -33,4 +33,19 @@ class SearchController extends Controller
         
        
     }
+
+    
+    public function search_blog(Request $request) { 
+        $text = $request->search;
+        $blog =DB::table('blogs')->where('caption', 'like', '%'.$text.'%')->orWhere('body','like','%'.$text.'%')->orWhere('writter','like','%'.$text.'%')->get();
+        $query = $blog;
+        if(count($query) > 0){
+            return view('partials/search',['text'=>$text])->withDetails($query);
+
+        }
+        elseif(count($query) == 0) {
+            return view('partials/search',['text'=>$text])->withMessage('warning','No Details found. Check Spelling!')->withDetails($query);
+        }
+        
+    }    
 }
