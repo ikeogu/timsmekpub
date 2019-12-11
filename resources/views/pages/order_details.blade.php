@@ -195,7 +195,7 @@
                                         <div class="form-group col-md-12">
                                             <label for="inputemail">Star Rating</label>
                                             <input  type='number' class="form-control" id="inputemail"
-                                                name="ratings" min="1" max="5">
+                                                name="ratings" min="1" max="5" placeholder="Rate book on a scale of 1 to 5 where 1 is lowest and 5 is highest.">
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="exampleFormControlTextarea1">Write to us</label>
