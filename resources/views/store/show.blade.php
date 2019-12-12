@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-md-6">
           <div class="author-img m-auto">
-          <img src="storage/publish/{{$book->cover_page}}" alt="{{$book->cover_page}}" class="img-fluid">
+          <img src="/storage/cover_page/{{$book->cover_page}}" alt="{{$book->cover_page}}" class="img-fluid">
           </div>
           
         </div>
@@ -14,6 +14,7 @@
             <ul class="details">
               <li><span>Title: {{$book->title}}</span></li>
               <li><span>Year Published :{{$book->year_pub}}</span></li>
+              <li><span>ISBN:{{$book->isbn}}</span></li>
               <li><span>Price: ₦{{$book->price/100}}</span></li>
               <li><span>Available :@if($book->available == 1)
                 Soft copy

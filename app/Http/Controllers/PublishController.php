@@ -137,8 +137,8 @@ class PublishController extends Controller
 
         $book->author_id = $request->author_id;
         
-        $book->content = $book_content;
-        $book->cover_page = $book->cover_page;
+        $book->content = $fileNameToSave;
+        $book->cover_page = $fileNameToStore;
         //dd($book->content,$book->cover_page);
         if($book->save()){
          return redirect(route('publish.create'))->with('success','Book Published');

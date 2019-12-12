@@ -20,6 +20,7 @@ class UsersTableSeeder extends Seeder
             'newslater'=>1,
             'agree'=> 1,
             'role' =>'Admin',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
 
         ]);DB::table('users')->insert([
             'name' => "Emmanuel",
@@ -30,6 +31,7 @@ class UsersTableSeeder extends Seeder
             'newslater'=>1,
             'agree'=> 1,
             'role' =>'Admin',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
 
         ]);
         

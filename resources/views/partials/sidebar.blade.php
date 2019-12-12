@@ -1,4 +1,4 @@
-    <div class="col-md-3">
+    
         <div class="container">
           <div class="cards">
             <div class="card-header">
@@ -49,4 +49,3 @@
             </div>
           </div>
         </div>
-      </div>

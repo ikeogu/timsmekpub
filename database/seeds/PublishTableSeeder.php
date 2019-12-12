@@ -24,11 +24,11 @@ class PublishTableSeeder extends Seeder
             'title' => $faker->name,
             'isbn' => $faker->e164PhoneNumber,
             'price'=>$faker->numberBetween($min = 100, $max=1000),
-            'available'=>$faker->numberBetween($min =1, $min=2),
+            'available'=>$faker->numberBetween($min =1, $max=2),
             'content' =>$faker->realText($maxNbChars = 150, $indexSize = 2),
             'cover_page'=>$faker->image,
             
-            'status'=>$faker->numberBetween($min =1, $min=2),
+            'status'=>$faker->numberBetween($min =1, $max=2),
 
             'description' =>$faker->text,
 

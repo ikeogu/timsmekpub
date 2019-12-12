@@ -891,6 +891,7 @@ i {
 	color: #444444;
   padding-top: 2rem;
   height: auto;
+  margin: 4em 0;
 }
 
 .card-container,
@@ -1135,6 +1136,11 @@ i {
 	margin-left: 1rem;
 }
 
+/* #action__btn i {
+	color: red;
+	background: red;
+} */
+
 .author-details .details i {
 	margin-right: 0.5rem;
 	font-size: 1.5rem;
@@ -1305,6 +1311,21 @@ footer {
 	clear: both;
 }
 
+.details .action-btn {
+	background: #ee4540;
+	padding: 3px 10px;
+	border-radius: 10px;
+}
+
+.details .action-btn .icon {
+	color: #fff;
+}
+
+#sidebar__display2 {
+	display: none;
+	padding: 0;
+}
+
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
    These examples override the primary ('mobile first') styles.
@@ -1338,7 +1359,19 @@ footer {
 		font-size: 1rem;
 	}
 
-	#top-header p,
+	#sidebar__display1 {
+		display: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	#sidebar__display2 {
+		display: block;
+		padding: 0;
+		margin: 0;
+	}
+
+	#top-header p, #top-header
 	i {
 		display: none;
 	}
@@ -1385,7 +1418,7 @@ footer {
 		width: 50%;
 		height: 100vh;
 		position: absolute;
-		z-index: 1;
+		z-index: 3;
 		left: 0;
 		top: 8rem;
 		padding: 10px;
@@ -1409,6 +1442,9 @@ footer {
 		text-align: left;
 		font-size: 0.8rem;
 		padding-top: 0.5rem;
+		margin: 0.3em 0;
+		text-align: center;
+		font-weight: bold;
 	}
 
 	nav ul li a {
@@ -1459,14 +1495,13 @@ footer {
 		padding: 10px 10px;
 	}
 
-	.card-body {
-		font-size: 0.7rem;
-	}
+	
 
 	.card-body {
 		padding: 0 !important;
 		border-radius: 5px;
 		margin: 10px 0;
+		font-size: 0.7em;
 	}
 
 	.card-inner p {
@@ -1476,6 +1511,20 @@ footer {
 
 	.card-inner li span {
 		color: #6e6c6c;
+	}
+
+	.details .action-btn {
+		background: #ee4540;
+		padding: 3px 10px;
+		border-radius: 10px;
+	}
+
+	.details .action-btn .icon {
+		color: #fff;
+	}
+
+	.details .action-btn .ion-md-remove {
+		
 	}
 
 	/* #main-side {
@@ -1566,11 +1615,15 @@ footer {
     text-align: center;
   }
 
+  #section-a .card {
+	  padding: 10px;
+  }
+
 	.card {
 		padding-top: 2rem;
 		width: auto;
-		height: 200px;
-    margin-left: 2rem;
+		margin: 1em 0;
+    /* margin-left: 2rem; */
     position: relative;
     /* overflow: hidden; */
 	}

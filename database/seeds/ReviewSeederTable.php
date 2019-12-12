@@ -23,7 +23,7 @@ class ReviewSeederTable extends Seeder
                
                 'user_id' =>$i,
                 'publish_id' =>$faker->numberBetween($min = 1, $max = 10),
-                
+                'subject'=>$faker->text,
                 'comment' => $faker->text,
                 'ratings' => $faker->numberBetween($min = 1, $max = 5),
                 

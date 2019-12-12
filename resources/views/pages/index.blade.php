@@ -3,9 +3,13 @@
 
 <div class="container-fluid mt-5">
     <div class="row">
-      @include('partials/sidebar')
+        <div class="col-md-3">
+            <span id="sidebar__display1">
+                @include('partials/sidebar');
+            </span>
+        </div>
 
-      <div class="col-md-6">
+      <div class="col-md-6 col-sm-pull-4">
         <section id="landingPage">
           <div class="container">
                 <div >
@@ -62,7 +66,7 @@
                             <div class="card">
                                 <div class="front mb-5">
                                     <div class="product">
-                                        <a href="/publish/{{$item->id}}"> <img class="img-circle" src="{{$item->cover_page}}" /></a>
+                                        <a href="/publish/{{$item->id}}"> <img class="img-circle" src="storage/cover_page/{{$item->cover_page}}" /></a>
                                     </div>
                                     <div class="content text-center">
                                     <a href="/publish/{{$item->id}}"> <h6 class="f-w-600 m-b-10">{{$item->title}}</h6></a>
@@ -336,7 +340,14 @@
           {{$blog->links()}}
         </section>
       </div>
+
       @include('partials/sidebar2')
+
+      <div class="col-md-3">
+        <span id="sidebar__display2">
+            @include('partials/sidebar');
+          </span>
+      </div>
 
         
     </div>
