@@ -49,6 +49,17 @@
                       
                     </div>
                 </div>
+                <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }} input-group mb-4 mr-sm-2">
+                  <label class="col-md-4 control-label">Captcha</label>
+                  <div class="col-md-6">
+                      {!! app('captcha')->display() !!}
+                      @if ($errors->has('g-recaptcha-response'))
+                          <span class="help-block">
+                              <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                          </span>
+                      @endif
+                  </div>  
+                </div>
               <button type="submit" class="butn mb-2 d-block">Submit</button>
             </form>
           </div>

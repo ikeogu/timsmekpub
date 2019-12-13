@@ -2,6 +2,10 @@
 
 use Illuminate\Database\Seeder;
 
+require 'vendor/autoload.php';
+
+use Carbon\Carbon;
+
 class DatabaseSeeder extends Seeder
 {
     /**

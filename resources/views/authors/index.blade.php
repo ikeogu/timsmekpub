@@ -14,9 +14,9 @@
 				<div class="col-md-4">
 						<div class="card user-card mt-5">
 							<div class="card-block">
-								<div class="user-image">
-								<img src="{{$item->photo}}" class="img-radius"
-										alt="{{$item->name}}" height="60" width="70">
+								<div class="">
+								<img src="/storage/authors/{{$item->photo}}" class="img-radius"
+										alt="{{$item->name}}" style="height:190px !important; width:auto;">
 								</div>
 								<h6 class="f-w-600 m-t-25 m-b-10">{{$item->name}}</h6>
 								<p class="text-muted">Status | Author |</p>

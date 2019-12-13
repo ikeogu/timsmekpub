@@ -55,7 +55,8 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'phone' => ['required', 'string','max:11'],
             'agree' =>['required','boolean'],
-            'newslater' => ['nullable']
+            'newslater' => ['nullable'],
+            'g-recaptcha-response' => 'required|captcha',
         ]);
     }
 

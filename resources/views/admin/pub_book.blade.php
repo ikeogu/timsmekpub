@@ -56,7 +56,7 @@
                            <option >-Select Availablity-</option>
                            <option value="1" >Soft copy</option>
                            <option value="2" >Hard copy</option>
-                           <option value="3" >Both</option>
+                           
                       </select>   
                 </div>
                 <div class="form-group">

@@ -155,6 +155,7 @@ class ComposerStaticInit689446ac072fddf7d881ce603e278851
         'A' => 
         array (
             'App\\' => 4,
+            'Anhskohbo\\NoCaptcha\\' => 20,
         ),
     );
 
@@ -417,6 +418,10 @@ class ComposerStaticInit689446ac072fddf7d881ce603e278851
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
+        'Anhskohbo\\NoCaptcha\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/anhskohbo/no-captcha/src',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -455,6 +460,9 @@ class ComposerStaticInit689446ac072fddf7d881ce603e278851
     );
 
     public static $classMap = array (
+        'Anhskohbo\\NoCaptcha\\Facades\\NoCaptcha' => __DIR__ . '/..' . '/anhskohbo/no-captcha/src/Facades/NoCaptcha.php',
+        'Anhskohbo\\NoCaptcha\\NoCaptcha' => __DIR__ . '/..' . '/anhskohbo/no-captcha/src/NoCaptcha.php',
+        'Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider' => __DIR__ . '/..' . '/anhskohbo/no-captcha/src/NoCaptchaServiceProvider.php',
         'App\\Article' => __DIR__ . '/../..' . '/app/Article.php',
         'App\\Author' => __DIR__ . '/../..' . '/app/Author.php',
         'App\\Blog' => __DIR__ . '/../..' . '/app/Blog.php',

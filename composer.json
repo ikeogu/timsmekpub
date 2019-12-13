@@ -9,12 +9,14 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "anhskohbo/no-captcha": "^3.1",
         "fideloper/proxy": "^4.0",
         "fzaninotto/faker": "^1.9",
         "jrm2k6/cloudder": "^0.6.0",
         "laravel/framework": "^5.8",
         "laravel/tinker": "^1.0",
         "laravel/ui": "^1.0",
+        "nesbot/carbon": "^2.27",
         "unicodeveloper/laravel-paystack": "1.0.*"
     },
     "require-dev": {

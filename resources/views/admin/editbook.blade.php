@@ -37,7 +37,7 @@
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control form-control-user" id="Name" aria-describedby="name"
-                  value="{{$book->isbn}}"name="isbn">
+                  value="{{$book->isbn}}" name="isbn">
                   <small>Article ISBN</small>
                   </div>
                 <div class="form-group">
@@ -56,59 +56,37 @@
                       </div>
                       <small>Article price</small>
                 <div class="form-group">
-                    <input type="text" class="form-control form-control-user" value="{{$book->avaliable}}" name="available">
-                        {{-- <select class="form-control " id="Name" 
-                           name="available" required>
-                           <option  >-Select Availablity-</option>
-                           <option value="softcopy" >Soft copy</option>
-                           <option value="hardcopy" >Hard copy</option>
-                           <option value="both" >Both</option>
-                      </select>    --}}
+                    <input type="text" class="form-control form-control-user" value="{{$book->avaliable}}" name="avaliable">
+                    
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control form-control-user" value="{{$book->category->name}}" name="category_id">
-                    {{-- <select class="form-control " id="Name" 
-                        name="category_id" required>
-                        <option  >-Select Category-</option>
-                        @foreach ($cat as $item)
-                        <option value="{{$item->id}}" >{{$item->name}}</option>
-                        
-                        @endforeach
-                        
-                    </select>    --}}
+                    
                     <small>Category</small>
                 </div>
                 <div class="form-group">
                    <input type="text" class="form-control form-control-user" value="{{$book->author->name}}" name="author_id">
-                    {{-- <select class="form-control " id="Name" 
-                        name="author_id" required>
-                        <option  >-Select Author-</option>
-                        @foreach ($author as $item)
-                        <option value="{{$item->id}}" >{{$item->name}}</option>
-                        
-                        @endforeach
-                        
-                    </select>    --}}
+                   
                     <small>Author</small>
                 </div>
                 <div class="form-group">
                   <input type="file" class="form-control form-control-user" id="Name" aria-describedby="name"
-                name="cover_page" value="{{$book->cover_page}}">
+                name="cover_page" >
                     <small>Upload Cover page</small>
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control form-control-user" id="Name" aria-describedby="name"
-                  value="{{$book->cover_page}}">
+                  value="{{$book->cover_page}}" readonly>
                       <small>Prev Cover page</small>
                   </div>
                 <div class="form-group">
                   <input type="file" class="form-control form-control-user" id="Name" aria-describedby="name"
-                name="content" value="{{$book->content}}">
+                name="content" >
                     <small>Upload Book PDF</small>
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control form-control-user" id="Name" aria-describedby="name"
-                  value="{{$book->content}}">
+                  value="{{$book->content}}" readonly>
                       <small>Prev Book</small>
                   </div>
                 <button type="submit" class="btn btn-danger btn-user btn-block">

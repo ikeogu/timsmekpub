@@ -24,7 +24,7 @@
 	<!-- Fonts -->
 	
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    
+    {!! NoCaptcha::renderJs() !!}
     
 	{{-- <script>
 		if ('serviceWorker' in navigator && 'PushManager' in window ) {
@@ -105,9 +105,25 @@
 				@endauth	
 				</ul>
 				<ul class="small-ul">
-						<li class="small"><a href="{{route('getCart')}}"><i class="text-white fa fa-shopping-cart"><sup class="badg">{{Session::has('cart') ? Session::get('cart')->totalQty : 0}}</sup></i></a></li>
+					<li class="small"><a href="{{route('getCart')}}"><i class="text-white fa fa-shopping-cart"><sup class="badg">{{Session::has('cart') ? Session::get('cart')->totalQty : 0}}</sup></i></a></li>
+					@guest
 					<li class="small"><a href="/register">Sign up</a></li>
 					<li class="small"><a href="/login">Login</a></li>
+					@else
+					<li class="small">
+					    {{ Auth::user()->name }} 
+
+						|<a class="dropdown-item" href="{{ route('logout') }}"
+						onclick="event.preventDefault();
+									  document.getElementById('logout-form').submit();">
+						 {{ __('Logout') }}
+					 	</a>
+
+						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+							@csrf
+						</form>
+						</li>
+					@endguest
 				</ul>
 			</nav>
 		</header>
@@ -123,7 +139,7 @@
 							<div class="time-logo">
 								<img src="{{asset('img/logo.png')}}" alt="" class="img-fluid" width="300">
 							</div>
-							<p class="mt-4">Timsmek Global Publishers® has the best editorial team in the world. With excellence carefully worn as a sacred robe and integrity sitting as the host, you can never get disappointed publishing with us. <br>We do the most incredible reviews, buy the best materials, give the best prints and, without apologies, blow your mind with the output you’d get.  
+							<p class="mt-4"> With excellence carefully worn as a sacred robe and integrity sitting as the host, you can never get disappointed publishing with us. <br>We do the most incredible reviews, buy the best materials, give the best prints and, without apologies, blow your mind with the output you’d get.  
 
 
 							</p>

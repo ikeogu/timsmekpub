@@ -328,8 +328,10 @@
                                 </div>
                               </a>
                             </div>
+                             <hr>
+                             <br><br>
                       @endforeach
-                      
+                     
                   @else
                       <div class="col-md-8">
                         <h3>Oops!! no recent post on our Blog.</h3>
@@ -414,4 +416,3 @@
 <!-- Button trigger modal -->
    
       <!-- Modal -->
-    

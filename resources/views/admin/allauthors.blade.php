@@ -47,7 +47,7 @@
                     @foreach ($authors as $item)
                     <tr>
                             <td>{{$item->name}}</td>
-                    <td><img src="/storage/authors/{{$item->photo}}"  class="img rounded" height="80" width="80"></td>
+                    <td><img src="storage/authors/{{$item->photo}}"  class="img rounded" height="80" width="80"></td>
                             <td class="text-center">{{$item->sex}}</td>
                             <td class="text-center">{{$item->email}}</td>
                             <td class="text-center">{{$item->dob}}</td>

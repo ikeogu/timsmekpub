@@ -53,7 +53,8 @@ class ArticleController extends Controller
         $this->Validate(request(),[
             'name' => 'required',
             'email'=> 'required',
-            'content' => 'required'
+            'content' => 'required',
+            'g-recaptcha-response' => 'required|captcha',
         ]);
 
         if($request->hasFile('content')){
@@ -66,7 +67,7 @@ class ArticleController extends Controller
             //file name to store
             $fileNameToStore = $filenames.'_'.time().'.'.$extension;
             //upload image
-            $path = $request->file('content')->storeAs('public/article_Content/', $fileNameToStore);
+            $path = $request->file('content')->storeAs('public_html/article_Content/', $fileNameToStore);
             $fileNameWithExt = $request->file('content')->getClientOriginalName();
             // $article_cont = $request->file('content')->getRealPath();
             

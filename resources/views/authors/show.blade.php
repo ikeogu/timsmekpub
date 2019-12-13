@@ -5,7 +5,7 @@
           <div class="row">
             <div class="col-md-6">
               <div class="author-img m-auto">
-              <img src="storage/authors{{$author->photo}}" alt="{{$author->photo}}" class="img-fluid">
+              <img src="storage/authors/{{$author->photo}}" alt="{{$author->photo}}" class="img-fluid">
               </div>
               <div class="row justify-content-center user-social-link">
                 <div class="col-auto"><a href="{{$author->instagram}}"><i class="fa fa-facebook text-facebook"></i></a></div>
@@ -43,7 +43,7 @@
                 <div class="col-md-3 col-6">
                     <div class="author-book">
                     <a href="/publish/{{$item->id}}">
-                      <img src="/storage/cover_page/{{$item->cover_page}}" alt="{{$item->cover_page}}" class="img-fluid" ><br>
+                      <img src="/storage/public_html/cover_page/{{$item->cover_page}}" alt="{{$item->cover_page}}" class="img-fluid" ><br>
                       <strong>{{$item->title}}</strong>
                       </a>
                     </div>

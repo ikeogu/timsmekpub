@@ -19,14 +19,14 @@
             <div class="address-2">
               <i class="fa fa-phone"></i>
               <h4>Phone</h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, minima?</p>
+              <p>+234 7039-095-187 | +234 -7034-559-895</p>
             </div>
           </div>
           <div class="col-md-4">
             <div class="address-1">
               <i class="fa fa-envelope"></i>
               <h4>Email</h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, minima?</p>
+              <p>support@timsmek.com.ng | timsmekglobalpublishers@gmail.com</p>
             </div>
           </div>
         </div>
@@ -65,6 +65,17 @@
           </div>
           <div class="form-row">
             <textarea class="form-control mt-4" placeholder="Message" rows="5" name="reason" required></textarea>
+          </div>
+          <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }} input-group mb-4 mr-sm-2">
+            <label class="col-md-4 control-label">Captcha</label>
+            <div class="col-md-6">
+                {!! app('captcha')->display() !!}
+                @if ($errors->has('g-recaptcha-response'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                    </span>
+                @endif
+            </div>  
           </div>
           <button type="submit" class="butn-outline my-4">Send</button>
         </form>
