@@ -27,8 +27,8 @@ class CreateUsersTable extends Migration
             $table->integer('agree')->default(0);
             $table->integer('amount');
             $table->bigInteger('acct_bal');
-            $table->string('referral_token')->unique();
-            $table->unsignedBigInteger('referrer_id')->nullable();
+            $table->string('referral_token')->unique()->nullable();
+            $table->unsignedBigInteger('referrer_id')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
             $table->foreign('referrer_id')->references('id')->on('users');
             $table->rememberToken();
             $table->timestamps();
