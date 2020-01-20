@@ -19,8 +19,8 @@
  <head>
    <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   <link rel="apple-touch-icon" sizes="76x76" href=".{{asset('img/apple-icon.png')}}">
-   <link rel="icon" type="image/png" href="{{asset('img/favicon.png')}}">
+   <link rel="apple-touch-icon" sizes="76x76" href=".{{secure_asset('img/apple-icon.png')}}">
+   <link rel="icon" type="image/png" href="{{secure_asset('img/favicon.png')}}">
    <title>
      Chizzy Savings
    </title>
@@ -28,9 +28,9 @@
    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
    <!-- Nucleo Icons -->
-   <link href="{{asset('css/nucleo-icons.css')}}" rel="stylesheet" />
+   <link href="{{secure_asset('css/nucleo-icons.css')}}" rel="stylesheet" />
    <!-- CSS Files -->
-   <link href="{{asset('css/blk-design-system.css')}}" rel="stylesheet" />
+   <link href="{{secure_asset('css/blk-design-system.css')}}" rel="stylesheet" />
    
  </head>
  
@@ -175,26 +175,26 @@
   </footer>
 </div>
 <!--   Core JS Files   -->
-<script src="{{asset('/js/core/jquery.min.js')}}" type="text/javascript"></script>
-<script src="{{asset('/js/core/popper.min.js')}}" type="text/javascript"></script>
-<script src="{{asset('/js/core/bootstrap.min.js')}}" type="text/javascript"></script>
-<script src="{{asset('/js/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
+<script src="{{secure_asset('/js/core/jquery.min.js')}}" type="text/javascript"></script>
+<script src="{{secure_asset('/js/core/popper.min.js')}}" type="text/javascript"></script>
+<script src="{{secure_asset('/js/core/bootstrap.min.js')}}" type="text/javascript"></script>
+<script src="{{secure_asset('/js/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
 <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-<script src="{{asset('/js/plugins/bootstrap-switch.js')}}"></script>
+<script src="{{secure_asset('/js/plugins/bootstrap-switch.js')}}"></script>
 <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-<script src="{{asset('/js/plugins/nouislider.min.js')}}" type="text/javascript"></script>
+<script src="{{secure_asset('/js/plugins/nouislider.min.js')}}" type="text/javascript"></script>
 <!-- Chart JS -->
-<script src="{{asset('/js/plugins/chartjs.min.js')}}"></script>
+<script src="{{secure_asset('/js/plugins/chartjs.min.js')}}"></script>
 <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
-<script src="{{asset('/js/plugins/moment.min.js')}}"></script>
-<script src="{{asset('/js/plugins/bootstrap-datetimepicker.js')}}" type="text/javascript"></script>
+<script src="{{secure_asset('/js/plugins/moment.min.js')}}"></script>
+<script src="{{secure_asset('/js/plugins/bootstrap-datetimepicker.js')}}" type="text/javascript"></script>
 <!-- Black Dashboard DEMO methods, don't include it in your project! -->
 
 <!-- Control Center for Black UI Kit: parallax effects, scripts for the example pages etc -->
-<script src="{{asset('/js/blk-design-system.min.js')}}" type="text/javascript"></script>
+<script src="{{secure_asset('/js/blk-design-system.min.js')}}" type="text/javascript"></script>
 <script>
   $(document).ready(function() {
-    // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+    // Javascript method's body can be found in secure_assets/secure_assets-for-demo/js/demo.js
     // demo.initLandingPageChart();
   });
 </script>
