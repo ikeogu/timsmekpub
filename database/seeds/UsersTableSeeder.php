@@ -12,30 +12,23 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => "tImsmek",
-            'email' => 'onyebuchitim@gmail.com',
-            'password' => bcrypt('tImsmek1'),
+            'name' => "Chisom Osuji",
+            'email' => 'chisom@gmail.com',
+            'password' => bcrypt('chisom'),
             'isAdmin' => 1,
             'phone'=> '07034559895',
             'newslater'=>1,
             'agree'=> 1,
-            'role' =>'Admin',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
-
-        ]);DB::table('users')->insert([
-            'name' => "Emmanuel",
-            'email' => 'ikeogu322@gmail.com',
-            'password' => bcrypt('123456789'),
-            'isAdmin' => 1,
-            'phone'=> '08133627610',
-            'newslater'=>1,
-            'agree'=> 1,
-            'role' =>'Admin',
+            'mode'=>'daily',
+            'referrer_id'=> 1,
+            'status'=>1,
+            'acct_bal'=>100,
+            'username' => 'chizzy',
+            'amount'=>2000,
+            'email_verified_at' =>Carbon::now()->format('Y-m-d H:i:s'),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
 
         ]);
-        
-
 
     }
 }
