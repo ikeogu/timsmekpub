@@ -16,14 +16,20 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->integer('isAdmin')->default(3);
+            $table->string('username')->unique();
             $table->string('email')->unique();
-            $table->string('phone')->unique();
-            $table->string('role')->default('user');
-            $table->boolean('agree');
-            $table->integer('newslater')->nullable()->default(0);
+            $table->bigInteger('phone')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('mode');
+            $table->integer('isAdmin')->default(3);
+            $table->integer('status')->default(0);
+            $table->integer('agree')->default(0);
+            $table->integer('amount');
+            $table->bigInteger('acct_bal');
+            $table->string('referral_token')->unique();
+            $table->unsignedBigInteger('referrer_id')->nullable();
+            $table->foreign('referrer_id')->references('id')->on('users');
             $table->rememberToken();
             $table->timestamps();
         });

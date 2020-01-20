@@ -6,18 +6,9 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
-
-    public function orders(){
-        return $this->hasMany('App\Order')->latest();
-    }
-
-    public function products(){
-        return $this->hasMany('App\Product');
-    }
-
 
     /**
      * The attributes that are mass assignable.
@@ -25,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','phone','agree','subscribe','role'
+        'name', 'email', 'password', 'mode','referrer_id','status','acct_bal','username','phone','amount',
     ];
 
     /**
@@ -45,14 +36,56 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function shipFee()
+   
+    public function account()
+        {
+            return $this->hasOne('App\Account');
+        }
+
+       /**
+     * A user has a referrer.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function referrer()
     {
-        return $this->hasOne('App\ShipFee');
+        return $this->belongsTo(User::class, 'referrer_id', 'id');
     }
-    public function review(){
-        return $this->hasMany('App\Review');
+
+    /**
+     * A user has many referrals.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function referrals()
+    {
+        return $this->hasMany(User::class, 'referrer_id', 'id');
     }
-   public function order(){
-       return $this->hasMany('App\Order');
-   }
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['referral_link'];
+
+    /**
+     * Get the user's referral link.
+     *
+     * @return string
+     */
+    public function getReferralLinkAttribute()
+    {
+        return $this->referral_link = route('register', ['ref' => $this->referral_token]);
+    }
+
+    public function payment()
+    {
+        return $this->hasMany('App\Payment');
+    }
+
+    public function message()
+    {
+        return $this->hasMany('App\Message');
+    }
 }

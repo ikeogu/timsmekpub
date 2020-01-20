@@ -303,8 +303,7 @@ input[type="month"] {
 
 textarea {
   overflow: auto;
-  resize: none;
-  border-radius: 5px;
+  resize: vertical;
 }
 
 fieldset {
@@ -533,10 +532,6 @@ kbd kbd {
   padding: 0;
   font-size: 100%;
   font-weight: 700;
-}
-
-textarea {
-  
 }
 
 pre {
@@ -10175,7 +10170,7 @@ a:focus {
   height: 2.5rem;
   text-align: center;
   margin-bottom: 1rem;
-  
+  cursor: pointer;
 }
 
 .sidebar #sidebarToggle::after {

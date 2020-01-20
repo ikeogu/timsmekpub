@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use App\Notifications\ReferrerBonus;
+use App\Providers\RouteServiceProvider;
 use App\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -24,13 +27,12 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
-    /**
+     /**
      * Where to redirect users after registration.
      *
      * @var string
      */
-    protected $redirectTo = '/home';
-
+    protected $redirectTo = RouteServiceProvider::HOME;
     /**
      * Create a new controller instance.
      *
@@ -39,6 +41,21 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    /**
+     * Show the application registration form.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm(Request $request)
+    {
+        if ($request->has('ref')) {
+            session(['referrer' => $request->query('ref')]);
+        }
+
+        return view('auth.register');
     }
 
     /**
@@ -51,12 +68,13 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'phone' => ['required', 'string','max:11'],
-            'agree' =>['required','boolean'],
-            'newslater' => ['nullable'],
-            'g-recaptcha-response' => 'required|captcha',
+            'mode' => ['required', 'string', 'max:255'],
+            'amount' => ['required', 'integer', 'max:500000000'],
+            'phone' => ['required','max:11' ],
+            
         ]);
     }
 
@@ -68,18 +86,38 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $referrer = User::whereUsername(session()->pull('referrer'))->first();
+            
         return User::create([
             'name' => $data['name'],
+            
             'email' => $data['email'],
+            'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
-            'phone' =>$data['phone'],
+            'mode' => $data['mode'],
+            'amount' => $data['amount'],
+            'status' => 0,
             'agree' => 1,
             'isAdmin' => 3,
-            'role'=>'User',
-            
-            'newslater' => $data['newslater']
+            'username' => $data['username'],
+            'acct_bal' => 0,
+            'referrer_id' => $referrer ? $referrer->id : null,
         ]);
     }
 
-    
+    /**
+     * The user has been registered.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function registered(Request $request, $user)
+    {
+        if ($user->referrer !== null) {
+            Notification::send($user->referrer, new ReferrerBonus($user));
+        }
+
+        return redirect($this->redirectPath());
+    }
 }
