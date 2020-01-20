@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('chisom'),
             'isAdmin' => 1,
             'phone'=> '07034559895',
-            'newslater'=>1,
+            
             'agree'=> 1,
             'mode'=>'daily',
             'referrer_id'=> 1,
