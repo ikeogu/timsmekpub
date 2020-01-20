@@ -27,7 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         if(Auth::user()->isAdmin == 1){
-            return view(route('dashboard'));
+            return redirect(route('dashboard'));
         }
         $user = Auth::user()->id;
         $acct_det = Account::where('user_id',$user)->get();
