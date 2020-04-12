@@ -41,9 +41,9 @@
                     <tr>
                         <td>{{$item->id}}</td>
                         <td>{{$item->reference}}</td>
-                        <td>{{$item->user->name}}</td>
-                        <td>{{$item->user->email}}</td>
-                        <td>{{$item->user->phone}}</td>
+                        <td>{{$item['user']['name']}}</td>
+                        <td>{{$item['user']['email']}}</td>
+                        <td>{{$item['user']['phone']}}</td>
                         <td>{{$item->plan}}</td>
                         <td>{{$item->amount}}</td>
                         

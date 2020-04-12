@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+
 use App\Notifications\ReferrerBonus;
-use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Providers\RouteServiceProvider;
 
 class RegisterController extends Controller
 {
@@ -73,7 +74,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'mode' => ['required', 'string', 'max:255'],
             'amount' => ['required', 'integer', 'max:500000000'],
-            'phone' => ['required','max:11' ],
+            'phone' => ['required','max:12' ],
             
         ]);
     }
@@ -88,7 +89,7 @@ class RegisterController extends Controller
     {
         $referrer = User::whereUsername(session()->pull('referrer'))->first();
             
-        return User::create([
+        return  User::create([
             'name' => $data['name'],
             
             'email' => $data['email'],
@@ -103,6 +104,7 @@ class RegisterController extends Controller
             'acct_bal' => 0,
             'referrer_id' => $referrer ? $referrer->id : null,
         ]);
+        
     }
 
     /**

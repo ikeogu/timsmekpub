@@ -6,13 +6,19 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/unicodeveloper/laravel-paystack.svg?style=flat-square)](https://scrutinizer-ci.com/g/unicodeveloper/laravel-paystack)
 [![Total Downloads](https://img.shields.io/packagist/dt/unicodeveloper/laravel-paystack.svg?style=flat-square)](https://packagist.org/packages/unicodeveloper/laravel-paystack)
 
-> A Laravel 5 Package for working with Paystack seamlessly
+> A Laravel Package for working with Paystack seamlessly
 
 ## Installation
 
 [PHP](https://php.net) 5.4+ or [HHVM](http://hhvm.com) 3.3+, and [Composer](https://getcomposer.org) are required.
 
-To get the latest version of Laravel Paystack, simply add the following line to the require block of your `composer.json` file.
+To get the latest version of Laravel Paystack, simply require it
+
+```bash
+composer require unicodeveloper/laravel-paystack
+```
+
+Or add the following line to the require block of your `composer.json` file.
 
 ```
 "unicodeveloper/laravel-paystack": "1.0.*"
@@ -20,7 +26,11 @@ To get the latest version of Laravel Paystack, simply add the following line to 
 
 You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
 
+
+
 Once Laravel Paystack is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` key.
+
+> If you use **Laravel >= 5.5** you can skip this step and go to [**`configuration`**](https://github.com/unicodeveloper/laravel-paystack#configuration)
 
 * `Unicodeveloper\Paystack\PaystackServiceProvider::class`
 
@@ -116,16 +126,30 @@ Note: Make sure you have `/payment/callback` registered in Paystack Dashboard [h
 ![payment-callback](https://cloud.githubusercontent.com/assets/2946769/12746754/9bd383fc-c9a0-11e5-94f1-64433fc6a965.png)
 
 ```php
-Route::post('/pay', 'PaymentController@redirectToGateway')->name('pay'); // Laravel 5.1.17 and above
+// Laravel 5.1.17 and above
+Route::post('/pay', 'PaymentController@redirectToGateway')->name('pay'); 
+```
 
 OR
 
+```php
 Route::post('/pay', [
     'uses' => 'PaymentController@redirectToGateway',
     'as' => 'pay'
 ]);
+```
 
+```php
 Route::get('/payment/callback', 'PaymentController@handleGatewayCallback');
+```
+
+OR
+
+```php
+// Laravel 5.0
+Route::get('payment/callback', [
+    'uses' => 'PaymentController@handleGatewayCallback'
+]); 
 ```
 
 ```php
@@ -208,6 +232,32 @@ Paystack::getAllTransactions();
  * @returns string
  */
 Paystack::genTranxRef();
+
+/**
+* This method creates a subaccount to be used for split payments 
+* @return array
+*/
+Paystack::createSubAccount();
+
+
+/**
+* This method fetches the details of a subaccount  
+* @return array
+*/
+Paystack::fetchSubAccount();
+
+
+/**
+* This method lists the subaccounts associated with your paystack account 
+* @return array
+*/
+Paystack::listSubAccounts();
+
+/**
+* This method Updates a subaccount to be used for split payments 
+* @return array
+*/
+Paystack::updateSubAccount();
 ```
 
 A sample form will look like so:
@@ -226,6 +276,7 @@ A sample form will look like so:
             <input type="hidden" name="orderID" value="345">
             <input type="hidden" name="amount" value="800"> {{-- required in kobo --}}
             <input type="hidden" name="quantity" value="3">
+            <input type="hidden" name="metadata" value="{{ json_encode($array = ['key_name' => 'value',]) }}" > {{-- For other necessary things you want to add to your payload. it is optional though --}}
             <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> {{-- required --}}
             <input type="hidden" name="key" value="{{ config('paystack.secretKey') }}"> {{-- required --}}
             {{ csrf_field() }} {{-- works only when using laravel 5.1, 5.2 --}}

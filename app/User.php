@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable 
 {
     use Notifiable;
 
@@ -76,7 +76,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getReferralLinkAttribute()
     {
-        return $this->referral_link = route('register', ['ref' => $this->referral_token]);
+        return $this->referral_link = route('register', ['ref' => $this->username]);
     }
 
     public function payment()

@@ -60,7 +60,7 @@ class AccountController extends Controller
             $acct->acct_bal = $user->acct_bal;
             if($user->save()){
                 $acct->save();
-                return redirect(route('users'))->with('success',$user->name.'\'s Account has been Credited' );
+                return redirect(route('record',[$user->id]))->with('success',$user->name.'\'s Account has been Credited' );
             }
         }
         $acct->acct_bal = $user->acct_bal;
@@ -73,11 +73,40 @@ class AccountController extends Controller
     
     public function debit(Request $request)
     {
-        $user = User::find($request->user_id);
-        $user->acct_bal = $user->acct_bal - $request->amount;
+        // $user = User::find($request->user_id);
+        // $user->acct_bal = $user->acct_bal - $request->amount;
+        // $acct_user = Account::where('user_id',$user->id)->first();
         
-        if($user->save()){
-            return redirect(route('users'))->with('success',$user->name.'\'s Account has been Debited' );
+        // $acct = Account::find($acct_user->id);
+       
+        // $acct->signature = 'Debited';
+        // $acct->status = $request->amount;
+        // $acct->save();
+        
+        // if($user->save()){
+        //     return redirect(route('record',[$user->id]))->with('success',$user->name.'\'s Account has been Debited' );
+        // }
+        $acct = new Account();
+        $acct->user_id = $request->user_id;
+        $acct->amount = $request->amount;
+        $acct->status = $request->amount;
+        $acct->day = $request->day;
+        $acct->mnth = $request->mnth;
+        
+        $acct->signature = 'Debited';
+        $user = User::find($acct->user_id);
+        if($user->status != 4){
+            $user->acct_bal -= $acct->amount;
+            $acct->acct_bal = $user->acct_bal;
+            if($user->save()){
+                $acct->save();
+                return redirect(route('record',[$user->id]))->with('success',$user->name.'\'s Account has been Debited' );
+            }
+        }
+        $acct->acct_bal = $user->acct_bal;
+        if($acct->save()){
+            
+            return redirect(route('users'))->with('success',$user->name.'\'s Account has been Credited' );
         }
     }
     /**
@@ -129,8 +158,8 @@ class AccountController extends Controller
     public function destroy($id)
     {
         //
-        $acct = Account::find($id);
+        $acct = User::find($id);
         $acct->delete();
-        return redirect(route())->with('success','Account delected');
+        return redirect(route('users'))->with('success','Account delected');
     }
 }

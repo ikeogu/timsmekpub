@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-  <meta charset="utf-8">
+  
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -12,11 +12,11 @@
   <title>Chizzy Savings Dashboard</title>
 
   <!-- Custom fonts for this template-->
-  <link href="{{secure_asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+  <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="{{secure_asset('css/sb-admin-2.css')}}" rel="stylesheet">
+  <link href="{{asset('css/sb-admin-2.css')}}" rel="stylesheet">
 
 </head>
 
@@ -25,7 +25,7 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
    <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-warning sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -61,6 +61,13 @@
         </a>
         
         </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{route('ue')}}" >
+                <i class="fas fa-fw fa-cog"></i>
+                <span>All User's Email</span>
+            </a>
+            
+        </li>
 
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
@@ -70,14 +77,27 @@
         </a>
         
         </li>
-
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{route('blog.index')}}" aria-expanded="true">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>Blog Posts</span>
+            </a>
+            
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{route('blog.create')}}" aria-expanded="true">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>Create Post</span>
+            </a>
+            
+        </li>
         <!-- Divider -->
         <hr class="sidebar-divider">
 
-        <!-- Heading -->
-        {{-- <div class="sidebar-heading">
+        
+         {{-- <div class="sidebar-heading">
         Addons
-        </div> --}}
+        </div>  --}}
 
         <!-- Nav Item - Pages Collapse Menu -->
 
@@ -160,10 +180,11 @@
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 
                 
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="{{ url('/logout') }}">
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                     Logout
                 </a>
+               
                 </div>
             </li>
 
@@ -189,18 +210,16 @@
     </div>
   </div>
     <!-- Bootstrap core JavaScript-->
-    <script src="{{secure_asset('vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{secure_asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="{{secure_asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+    <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="{{secure_asset('js/sb-admin-2.js')}}"></script>
+    <script src="{{asset('js/sb-admin-2.js')}}"></script>
 
-    <!-- Page level plugins -->
-    <script src="{{secure_asset('vendor/chart.js/Chart.min.js')}}"></script>
-
+    
    
 </body>
 

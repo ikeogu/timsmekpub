@@ -17,9 +17,10 @@ use Illuminate\Support\Facades\Mail;
 
 
 Route::get('/', 'HomeController@first')->name('home');
+Route::post('update_user', 'HomeController@update_avatar')->name('avatar');
 
 
-Auth::routes(['verify'=>true]);
+Auth::routes();
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/home', 'HomeController@index')->name('homes');
@@ -31,4 +32,9 @@ Route::get('/payment/callback', 'PaymentController@handleGatewayCallback');
 
 Route::get('/dashboard', 'Admin@index')->name('dashboard');
 Route::get('/users','Admin@users')->name('users');
+Route::get('/users_Email','Admin@users_email')->name('ue');
+Route::get('/record/{id}','Admin@record')->name('record');
 Route::get('/payments_made', 'Admin@payments')->name('payments');
+Route::resource('blog', 'BlogController');
+Route::get('/chizzy_post/{slug}', 'BlogController@show')->name('show_post');
+Route::get('/chizzy_blogs', 'BlogController@index2')->name('allblog');

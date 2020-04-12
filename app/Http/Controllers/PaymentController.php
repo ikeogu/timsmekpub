@@ -5,14 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Paystack;
 use App\Payment;
+use App\User;
 class PaymentController extends Controller
+
 {
+    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Redirect the User to Paystack Payment Page
      * @return Url
      */
     public function redirectToGateway()
     {
+        request()->amount = request()->amount * 100;
         request()->metadata = json_encode(request()->all());
         return Paystack::getAuthorizationUrl()->redirectNow();
     }

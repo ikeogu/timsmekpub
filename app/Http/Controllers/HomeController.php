@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Account;
 use Auth;
+use App\User;
+use Image;
 
 class HomeController extends Controller
 {
@@ -16,7 +18,7 @@ class HomeController extends Controller
     public function __construct()
     {
         
-        $this->middleware(['auth','verified'])->except(['first']);
+        $this->middleware(['verified'])->except(['first']);
     }
 
     /**
@@ -36,6 +38,38 @@ class HomeController extends Controller
 
     public function first()
     {
-        return view('index');
+        return view('index2');
+    }
+
+    public function update_avatar(Request $request){
+        // $request->validate([
+        //         'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // ]);
+           
+        
+        try{
+            if($request->hasFile('avatar'))
+        {
+            $user = Auth::user();
+            
+            $avatarName = $user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
+    
+            $request->avatar->storeAs('avatars',$avatarName);
+    
+            $user->avatar = $avatarName;
+            $user->save();
+    
+            return back()
+                ->with('success','You have successfully upload image.');
+        }
+            
+        } catch (\Exception $e) {
+
+            return back()->with('success','Oops! '.$e->getMessage());
+        
+        }
+       
+       
+       
     }
 }
